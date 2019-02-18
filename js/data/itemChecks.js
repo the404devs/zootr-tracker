@@ -543,15 +543,15 @@ define(["data/locations", "classes/itemCheck", "data/itemsAndSongs", "data/abili
       {abilities: [Abilities.STRENGTH]},
       {offLogic: true},
     ]),
-    new ItemCheck("Megaton Hammer", Locations.FIRE_TEMPLE, [
+    new ItemCheck("Megaton Hammer", Locations.FIRE_TEMPLE, [60,167], "5F", [
       {abilities: [Abilities.BOMB, Abilities.STRENGTH]},
       {abilities: [Abilities.BLAST], offLogic: true},
     ]),
-    new ItemCheck("Goron Below Hammer", Locations.FIRE_TEMPLE, [
+    new ItemCheck("Goron Below Hammer", Locations.FIRE_TEMPLE, [88,143], "3F", [
       {items: [Items.MEGATON_HAMMER, Items.SONG_OF_TIME], abilities: [Abilities.STRENGTH]},
       {items: [Items.MEGATON_HAMMER], offLogic: true},
     ]),
-    new ItemCheck("Volvagia", Locations.FIRE_TEMPLE, [
+    new ItemCheck("Volvagia", Locations.FIRE_TEMPLE, [50,147], "1F", [
       {items: [Items.MEGATON_HAMMER], abilities: [Abilities.STRENGTH]},
       {items: [Items.MEGATON_HAMMER, Items.HOVER_BOOTS]},
       {items: [Items.MEGATON_HAMMER], offLogic: true},
@@ -969,7 +969,7 @@ define(["data/locations", "classes/itemCheck", "data/itemsAndSongs", "data/abili
     new ItemCheck("Maze Left 3", Locations.GERUDO_TRAINING_GROUNDS),
     new ItemCheck("Ice Arrows", Locations.GERUDO_TRAINING_GROUNDS),
     // Ganon's Castle
-    new ItemCheck("Double Defense Fairy", Locations.GANONS_CASTLE, [295,103], [
+    new ItemCheck("Double Defense Fairy", Locations.GANONS_CASTLE, [295,103], "0", [
       {age: Age.ADULT, items: [Items.GOLDEN_GAUNTLETS]},
       {age: Age.ADULT, glitches: true},
     ]),

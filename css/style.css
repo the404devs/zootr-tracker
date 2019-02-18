@@ -19,6 +19,9 @@ h2{
   font-family: "Hylia Serif";
   font-size: 30px;
   font-weight: lighter;
+  text-align: center;
+  margin-top: 10px;
+  border-bottom: 2px solid;
 }
 
 p{
@@ -78,7 +81,7 @@ p{
   width: 0;
   height: 2px;
   bottom: 0;
-  left: 0;
+  left: 20px;
   border-bottom: 1px solid;
   visibility: hidden;
   -webkit-transition: all 0.1s;
@@ -87,7 +90,7 @@ p{
 
 .item-check label:hover:before{
   visibility: visible;
-  width: 100%;
+  width: calc(100% - 20px);
 }
 
 .no-animation, .no-animation * {
@@ -151,12 +154,6 @@ p{
   padding-left: 150px;
 }
 
-.region h2 {
-  text-align: center;
-  margin-top: 10px;
-  border-bottom: 2px solid;
-}
-
 .location h3 {
   /*position: relative;*/
   z-index: 0;
@@ -213,6 +210,43 @@ ul.item-checks li input[type=checkbox]:checked + label {
   color:red;
   margin-bottom: 5px;
   margin-left: 5px;
+  display: inline;
+}
+
+#header h5{
+  color: red;
+  display:inline;
+  font-size:0.75em;
+  padding-left: 5px;
+}
+
+.link {
+  color: #c50ed2;
+  font-weight: bold;
+  text-decoration: none;
+  border-style: solid;
+  border-color: #c50ed2;
+  border-width: 0;
+  position: sticky;
+}
+
+.link:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px!important;
+    bottom: 0;
+    left: 0;
+    margin-bottom: -1px;
+    border-bottom: 1px solid;
+    /* visibility: hidden; */
+    -webkit-transition: all 0.1s;
+    transition: all 0.1s;
+}
+
+.link:hover:before {
+    visibility: visible;
+    width: 100%;
 }
 
 #footer {
@@ -257,6 +291,10 @@ ul.item-checks li input[type=checkbox]:checked + label {
 
 .clear {
   clear: both;
+}
+
+#inventory{
+  padding:5px;
 }
 
 #inventory table {
@@ -316,20 +354,21 @@ ul.item-checks li input[type=checkbox]:checked + label {
 #overlay {
   display: none;
   top: 0;
-  height: 100%;
-  width: 100%;
+  /*height: 100%;*/
+  width: 90%;
   position: absolute;
-  background: rgba(0,0,0,0.5);
+  /*background: rgba(0,0,0,0.5);*/
 }
 
 .popup {
   display: none;
 }
 
-#check-pedestal-popup {
+#check-pedestal-popup, #settings-popup {
   padding: 20px;
   width: 400px;
-  background: #272822;
+  background: rgba(0,0,0,0.9);
+  /*display: sticky;*/
   border: 1px solid #f0f0f0;
   border-radius: 10px;
   margin: 100px auto;
@@ -387,7 +426,8 @@ ul.item-checks li input[type=checkbox]:checked + label {
   height: 75px;
   padding-left: 25px;
   padding-right: 5px;
-  padding-bottom: 5px;
+  padding-bottom: 7px;
+  padding-top: 2px;
   overflow: hidden;
   position: relative;
   z-index: 2
@@ -426,6 +466,7 @@ ul.item-checks li input[type=checkbox]:checked + label {
 #gerudo-desert span:before {content: 'Gerudo Desert';}
 #skulltula-tab span:before {content: 'Show Skulltulas'}
 #skulltula-tab2 span:before {content: 'Show Item Checks'}
+#home-tab span:before {content: 'the404.nl'}
 
 .tabOverworld:hover span {
   padding-left: 125px;
@@ -475,6 +516,7 @@ ul.item-checks li input[type=checkbox]:checked + label {
 
 .pane-container{
   border: solid white 2px;
+  border-radius: 10px;
 /*  border-top: none;*/
   height: 100%;
   overflow-x: hidden;
@@ -484,11 +526,12 @@ ul.item-checks li input[type=checkbox]:checked + label {
   overflow-x: hidden;
 }
 
-#overworld{
+#overworld, #status{
   height: fit-content;
   min-height: 415px;
   overflow-x: hidden;
   border: 2px solid white;
+  border-radius: 10px;
 }
 
 /*.fade {
@@ -520,10 +563,14 @@ ul.item-checks li input[type=checkbox]:checked + label {
   padding-left: 15px;
   /*background-color: purple;*/
   transition: background-color 0.25s, color 0.25s;
+  padding-top: 15px;
 }
 
 #map-header{
   margin-bottom:5px;
+  width: fit-content;
+  display: inline;
+  margin-top:5px;
 }
 
 .overworld-map{
@@ -556,6 +603,16 @@ ul.item-checks li input[type=checkbox]:checked + label {
   z-index: 4;
 }
 
+#floor-indicator{
+  /*margin-top: 0;*/
+  margin-bottom: 0;
+  width: fit-content;
+  display: inline;
+  /*position: relative;*/
+  /*left: 55%;*/
+  /*top:35px;*/
+}
+
 #floor-selector{
   /*position: absolute;*/
   float: right;
@@ -584,8 +641,65 @@ ul.item-checks li input[type=checkbox]:checked + label {
   color: white;
 }
 
+.button{
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 10px;
+  width: auto;
+  font-family: Chiaro;
+  text-align: center;
+  padding: 5px;
+  cursor: pointer;
+  transition: 0.25s all;
+  vertical-align: middle;
+  color: white;
+}
+
+.button:hover{
+  background-color: blue;
+}
+
 @keyframes flash{
   0%{filter: invert(0);}
   50%{filter: invert(1);}
   100%{filter: invert(0);}
+}
+
+.input-container{
+  /*display: block;*/
+  position: relative;
+  cursor: pointer;
+  margin-right: 15px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  background-image: url("../images/UNCHECKED.png");
+  background-size: 16px 16px;
+  border-radius: 50%;
+}
+
+.hyrule-castle .checkmark, .hyrule-field .checkmark, .zoras-river .checkmark{
+  filter: invert(1);
+}
+
+.radio, .checkbox{
+  opacity: 0;
+}
+
+
+.radio:checked ~ .checkmark{
+  background-image: url("../images/RADIO_CHECKED.png");
+}
+
+.checkbox:checked ~ .checkmark{
+  background-image: url("../images/CHECKBOX_CHECKED.png");
 }

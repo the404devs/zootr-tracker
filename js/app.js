@@ -11,30 +11,20 @@ requirejs.config({
 requirejs(["app/main"]);
 
 var tabIndex = 1;
-// showPanes(tabIndex, "L");
-showPanes(tabIndex, "R");
 
 // Tab controls
-function currentPane(n, side) {
-  showPanes(tabIndex = n,side);
+function currentPane(n) {
+  showPanes(tabIndex = n);
 }
 
-function showPanes(n,side) {
+function showPanes(n) {
   var i;
   var tabs;
   var panes;
-  if (side=="L"){
-    tabs = document.getElementsByClassName("tabLeft");
-    panes = document.getElementsByClassName("paneLeft");
-  }
-  if (side=="R"){
-    tabs = document.getElementsByClassName("tabRight");
-    panes = document.getElementsByClassName("paneRight");
-  }
-  if (side=="M"){
-    tabs = document.getElementsByClassName("tabOverworld");
-    panes = document.getElementsByClassName("region");
-  }
+
+  tabs = document.getElementsByClassName("tabOverworld");
+  panes = document.getElementsByClassName("region");
+
   if (n > panes.length) {tabIndex = 1} 
   if (n < 1) {tabIndex = panes.length}
   for (i = 0; i < panes.length; i++) {
@@ -42,17 +32,13 @@ function showPanes(n,side) {
   }
   for (i = 0; i < tabs.length; i++) {
       tabs[i].className = tabs[i].className.replace(" active", "");
-      if (side=="M"){
-      	tabs[i].style.color = "";
-      	tabs[i].style.backgroundColor = "";
-      }
+    	tabs[i].style.color = "";
+    	tabs[i].style.backgroundColor = "";
   }
   panes[tabIndex-1].style.display = "block"; 
   tabs[tabIndex-1].className += " active";
-  if (side=="M"){
-  	tabs[tabIndex-1].style.backgroundColor = "black";
-  	tabs[tabIndex-1].style.color = "white";      	
-  }
+	tabs[tabIndex-1].style.backgroundColor = "black";
+	tabs[tabIndex-1].style.color = "white";      	
 
 
   // window.scrollTo(0, 0);
@@ -61,13 +47,18 @@ function showPanes(n,side) {
 
 
 //This script block is to make the bar of running Marios stay at the top of the page.
+/*Whoa, vintage comment. That's from our Mario quiz project in Feb 2018.
+This is a modified version of a similar function used in that project to keep a div
+at the top of the screen as you scroll down. We do the same here with the map and tabs*/
 window.onscroll = function() {
 	var mapbox = document.getElementById("map-container");
 	var tabs = document.getElementById("overworldTabs");
+  var overlay = document.getElementById('overlay');
 	offset = window.pageYOffset-100;
 	if (offset<0) {offset=0}
 	mapbox.style.marginTop =  offset +"px";
 	tabs.style.marginTop =  offset + 5 +"px";
+  overlay.style.marginTop =  offset +"px";
 };			
 
 
