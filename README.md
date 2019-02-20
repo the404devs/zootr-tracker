@@ -1,6 +1,6 @@
 # zootr-tracker
-A tracker application for Ocarina of Time Randomizer
-www.the404.ml/zootr
+A tracker application for Ocarina of Time Randomizer  
+www.the404.ml/zootr  
 Based off the work of Jared Branum, which can be found [here](https://github.com/jaredbranum/zootr-tracker)
 
 ### *0.2.3 (02/19/19)*
