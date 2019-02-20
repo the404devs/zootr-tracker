@@ -1,4 +1,3 @@
-/*taboverworld:hover span:before margintop*/
 
 @font-face{
   font-family: "Hylia Serif";
@@ -13,6 +12,7 @@ body {
   background: black;
   font-family: "Chiaro";
   color: #f0f0f0;
+  padding: 0 1%;
 }
 
 h2{
@@ -26,6 +26,24 @@ h2{
 
 p{
   margin-top: 0;
+}
+
+.row {
+  display: -webkit-flex;
+  display: flex;
+  margin-left: 0px;
+}
+
+.column {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+}
+
+.location, .region, .item-check{
+  transition: 0.25s display;
 }
 
 #locations.hide-inaccessible .region.inaccessible,
@@ -44,8 +62,8 @@ p{
 
 #locations.hide-collected *:not(.keys) > .no-animation {
   display: none !important;
-  animation: none !important;
-  transition: none !important;
+  /*animation: none !important;*/
+  /*transition: none !important;*/
 }
 
 #locations.hide-collected .region.collected,
@@ -111,7 +129,7 @@ p{
   padding: 5px;
 }
 
-.kokiri-forest, #kokiri-forest {
+.kokiri-forest, #kokiri-forest, #deku-hint:hover, #forest-hint:hover {
   background: #138510;
   color: white;
 }
@@ -119,27 +137,27 @@ p{
   background: #eeff43;
   color: black;
 }
-.kakariko-village, #kakariko-village {
-  background: #b348d2; /*#ff77aa;*/
+.kakariko-village, #kakariko-village, #shdw-hint:hover {
+  background: #8500f7;/*#b348d2;*/ /*#ff77aa;*/
   color: white;
 }
-.death-mountain, #death-mountain {
+.death-mountain, #death-mountain, #dc-hint:hover, #fire-hint:hover {
   background: #a91a05;
   color: white;
 }
-.zoras-river, #zoras-river {
+.zoras-river, #zoras-river, #jabu-hint:hover {
   background: #3ad7f9;
   color: black;
 }
-.lake-hylia, #lake-hylia {
+.lake-hylia, #lake-hylia, #water-hint:hover {
   background: #0c4e9b;
   color: white;
 }
-.gerudo-desert, #gerudo-desert {
+.gerudo-desert, #gerudo-desert, #spirit-hint:hover {
   background: #cc7025; /*#ffa500;*/
   color: white;
 }
-.hyrule-castle, #hyrule-castle {
+.hyrule-castle, #hyrule-castle, #light-hint:hover {
   background: #cccccc;
   color: black;
 }
@@ -148,6 +166,14 @@ p{
   background: black;
   color: gold;
   border-color: gold;
+  margin-top: 10px;
+}
+
+#inventory-tab{
+  background: black;
+  color:#b348d2;
+  border-color:#b348d2;
+  transition: 0.25s display;
 }
 
 #skulltula-tab2:hover span {
@@ -176,7 +202,9 @@ ul.item-checks {
   margin-top: 0px;
   margin-left: 20px;
   padding-left: 5px;
-  border-left: solid 2px;
+  border-left: solid 1px;
+  border-bottom: solid 1px;
+  border-radius: 0 0 0 5px;
 }
 
 ul.item-checks li {
@@ -185,6 +213,10 @@ ul.item-checks li {
 
 ul.item-checks li input[type=checkbox]:checked + label {
   text-decoration: line-through;
+}
+
+#inventory-close, #inventory-tab{
+  display: none;
 }
 
 #right-side {
@@ -196,13 +228,53 @@ ul.item-checks li input[type=checkbox]:checked + label {
   overflow-x: hidden;
 }
 
+@media screen and (max-width: 1190px) {
+  #right-side{
+    width: 0;
+    z-index: 5;
+    transition: 0.5s all;
+    left:15px;
+    /*top:72px;*/
+  }
+
+  #inventory table{
+    margin:0!important;
+    border-right: 2px solid white;
+  }
+
+  #options{
+    position: absolute;
+    top:175px;
+    right:0;
+    min-width: 230px;
+  }
+
+  #settings{
+    height:150px;
+    overflow-y:scroll;
+  }
+
+  #inventory-close{
+    display: block;
+    right:10px;
+    position: absolute;
+  }
+
+  #inventory-tab{
+    display: inline;
+  }
+}
+
+
+
 #left-side {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
   /*float: left;*/
   min-height: calc(100vh - 30px);
-  max-width: 80%;
+  max-width: 75%;
+  min-width: 880px;
   overflow-x: hidden;
 }
 
@@ -231,22 +303,22 @@ ul.item-checks li input[type=checkbox]:checked + label {
 }
 
 .link:before {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 2px!important;
-    bottom: 0;
-    left: 0;
-    margin-bottom: -1px;
-    border-bottom: 1px solid;
-    /* visibility: hidden; */
-    -webkit-transition: all 0.1s;
-    transition: all 0.1s;
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px!important;
+  bottom: 0;
+  left: 0;
+  margin-bottom: -1px;
+  border-bottom: 1px solid;
+  /* visibility: hidden; */
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
 }
 
 .link:hover:before {
-    visibility: visible;
-    width: 100%;
+  visibility: visible;
+  width: 100%;
 }
 
 #footer {
@@ -263,6 +335,7 @@ ul.item-checks li input[type=checkbox]:checked + label {
 
 #age-selector {
   margin: 10px;
+  margin-top:0;
   text-align: center;
 }
 
@@ -272,13 +345,18 @@ ul.item-checks li input[type=checkbox]:checked + label {
 }
 
 #settings {
-  font-size: 10px;
+  font-size: 12px;
   padding-left: 3px;
   padding-right: 2px;
 }
 
-#settings select {
-  width: 100%;
+#settings tr{
+  height: 35px;
+}
+
+#settings tr td{
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 #settings tr td:first-child {
@@ -327,9 +405,9 @@ ul.item-checks li input[type=checkbox]:checked + label {
   z-index: 2;
   right: 0;
   bottom: 0;
-  color: #ddd;
+  color: inherit;
   padding: 1px 3px;
-  background: #000;
+  background: transparent;
   border-radius: 10px;
 }
 
@@ -346,7 +424,7 @@ ul.item-checks li input[type=checkbox]:checked + label {
   filter: grayscale(50%);
 }
 
-.item.collected img, .item.collected .subtitle, .item.map img {
+.item.collected img, .item.collected .subtitle, .item.map img, .item.stone-hint img{
   opacity: 1;
   filter: grayscale(0%);
 }
@@ -390,27 +468,6 @@ ul.item-checks li input[type=checkbox]:checked + label {
   top:0;
 }
 
-.tabLeft, .tabRight {
-  width: auto;
-  margin: 2px;
-  font-size: 1.5vw;
-  font-family: "Chiaro";
-  background-color: black;
-  border-radius: 10px 10px 0 0;
-  border-color: white;
-  color: white;
-  border-width: 2px;
-  border-style: solid;
-  border-bottom-style: none;
-  display: inline-block;
-  position: relative;
-  transition: background-color 0.5s ease;
-  vertical-align: bottom;
-  text-align: center;
-  padding: 5px 10px 5px 10px;
-  top: 2px;
-  cursor: pointer;
-}
 
 .tabOverworld{
   border-color: white;
@@ -466,7 +523,7 @@ ul.item-checks li input[type=checkbox]:checked + label {
 #gerudo-desert span:before {content: 'Gerudo Desert';}
 #skulltula-tab span:before {content: 'Show Skulltulas'}
 #skulltula-tab2 span:before {content: 'Show Item Checks'}
-#home-tab span:before {content: 'the404.nl'}
+#inventory-tab span:before {content: 'Show Inventory';}
 
 .tabOverworld:hover span {
   padding-left: 125px;
@@ -475,6 +532,64 @@ ul.item-checks li input[type=checkbox]:checked + label {
 .tabOverworld:hover span:before {
   opacity: 1;
   left: 0px;
+  margin-top: -4px;
+  /*transition: 0.25s; */
+}
+
+.tabInventory{
+  border-color: white;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 5px 0 0 5px;
+  border-right: none;
+  text-align: left;
+  font-size: 20px;
+  transition:  color 0s;
+  cursor: pointer;
+  width: 50px;
+  height: 75px;
+  padding-right: 25px;
+  padding-left: 5px;
+  padding-bottom: 7px;
+  padding-top: 2px;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  background-color: black;
+  color:white;
+}
+
+.tabInventory span {
+  cursor: pointer;
+  display: inline;
+  word-wrap: none;
+  position: relative;
+  transition: 0.25s;
+  text-align: right;
+  /*z-index: 2;*/
+  overflow-x: hidden;
+}
+
+
+.tabInventory span:before {
+  position: absolute;
+  width:150px;
+  font-size: 16px;
+  opacity: 0;
+  top: 0;
+  right: -150px;
+  transition: right 0.25s, background-color 0.25s;
+  z-index: 0;
+  content: "Show Inventory";
+}
+
+.tabInventory:hover span {
+  padding-right: 125px;
+}
+
+.tabInventory:hover span:before {
+  opacity: 1;
+  right: 0px;
   margin-top: -4px;
   /*transition: 0.25s; */
 }
@@ -491,19 +606,7 @@ ul.item-checks li input[type=checkbox]:checked + label {
 }
 
 
-
 .tabWrapper{
-  width: 100%;
-  text-align: left;
-  color: black;
-  background-color: black;
-  text-shadow: none;
-/*  border-bottom-style: solid;
-  border-bottom-color: white;
-  border-bottom-width: 2px; */
-}
-
-.tabWrapperSide{
   height: auto;
   text-align: left;
   color: black;
@@ -511,6 +614,19 @@ ul.item-checks li input[type=checkbox]:checked + label {
   text-shadow: none;
   width: auto;
   position: absolute;
+  margin-top: 5px;
+}
+
+.tabWrapperRight{
+  height: auto;
+  text-align: right;
+  color: black;
+  background-color: transparent;
+  text-shadow: none;
+  width: auto;
+  position: absolute;
+  right:0;
+  float: right;
   margin-top: 5px;
 }
 
@@ -532,6 +648,11 @@ ul.item-checks li input[type=checkbox]:checked + label {
   overflow-x: hidden;
   border: 2px solid white;
   border-radius: 10px;
+}
+
+#status{
+  text-align: center;
+  background-color: black;
 }
 
 /*.fade {
@@ -556,7 +677,8 @@ ul.item-checks li input[type=checkbox]:checked + label {
   border-radius: 10px;
   /*position: absolute;*/
   float: right;
-  width: 60%;
+  width: 50%;
+  min-width: 485px;
   margin-right: 10px;
   margin-bottom: 10px;
   height: 70%;
@@ -574,7 +696,7 @@ ul.item-checks li input[type=checkbox]:checked + label {
 }
 
 .overworld-map{
-  height: 300px;
+  max-height: 300px;
 }
 
 #map-foreground{z-index: 1;position: absolute;}
@@ -644,11 +766,12 @@ ul.item-checks li input[type=checkbox]:checked + label {
 .button{
   background-color: transparent;
   border: 2px solid white;
-  border-radius: 10px;
+  border-radius: 5px;
   width: auto;
   font-family: Chiaro;
   text-align: center;
-  padding: 5px;
+  padding: 5px 25px 5px 25px;
+  font-size:16px;
   cursor: pointer;
   transition: 0.25s all;
   vertical-align: middle;
@@ -658,6 +781,14 @@ ul.item-checks li input[type=checkbox]:checked + label {
 .button:hover{
   background-color: blue;
 }
+
+.pedestal-hint{
+  width: 150px;
+  margin: 5px;
+  font-size: 13px;
+  padding: 5px
+}
+
 
 @keyframes flash{
   0%{filter: invert(0);}
@@ -702,4 +833,171 @@ ul.item-checks li input[type=checkbox]:checked + label {
 
 .checkbox:checked ~ .checkmark{
   background-image: url("../images/CHECKBOX_CHECKED.png");
+}
+
+select, option{
+  background-color:rgba(0,0,128,0.9);
+  border: 1px solid white;
+  border-radius: 5px;
+  color:white;
+  font-family: "Chiaro";
+  font-size:11px;
+  margin-top: 5px;
+  height:25px;
+  width: 100%;
+  vertical-align: text-bottom;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 10000002; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: hidden; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  transition: 0.5s;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: rgba(0,0,128,0.9);
+  margin: auto;
+  padding: 0;
+  border: 1px solid white;
+  border-radius: 4px;
+  overflow: auto;
+  width: 600px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  transition: all 0.5s;
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* Add Animation */
+@-webkit-keyframes animatebottom {
+    from {top:0; opacity:1} 
+    to {top:-300px; opacity:0}
+}
+
+@keyframes animatebottom {
+    from {top:0; opacity:1}
+    to {top:-300px; opacity:0}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  transition: 0.25s all;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: rgba(0,0,0,0.9);
+  color: white;
+  border-radius: 4px;
+}
+
+.modal-body {
+  margin: 0% 10% 0% 10%;
+}
+
+.modal-footer {
+  padding:10px;
+  background-color: rgba(0,0,0,0.9);
+  color: white;
+  border-radius: 4px;
+}
+
+.medallion-table tr td{
+  width: 30px;
+  height: 20px;
+}
+
+.medallion{
+  text-align: center;
+}
+
+.medallion-location{
+  font-size:10px;
+  position: absolute;
+  top: 25px;
+  left: -12px;
+  width: 55px;
+  line-height: 15px;
+}
+
+#hint-select-modal .modal-content{
+  width:620px;
+}
+
+#hint-select-modal .modal-content .modal-body{
+  padding: 0;
+}
+
+#hint-text{
+  text-align: center;
+  margin-bottom:0;
+  margin-top:5px;
+}
+
+#pedestal-title{
+  margin-bottom: 0;
+  margin-top: 15px;
+}
+
+#hint-warning{
+  color: red;
+  margin-top:0;
+  margin-bottom: 0;
+  visibility: hidden;
+
+}
+
+.blurb{
+  padding: 0;
+  margin: 0;
+  margin-left:10px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+#read-pedestal{
+  padding-bottom:5px;
+}
+
+#settings-modal{
+  padding-top: 40px;
+}
+
+#settings-modal .modal-content{
+  width: 400px;
 }

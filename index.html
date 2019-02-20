@@ -2,19 +2,28 @@
 <html>
 <head>
   <title>ZOOTR Tracker</title>
-  <script data-main="js/app" src="js/lib/require.js"></script>
+  <script data-main="js/app" src="js/lib/require.js"></script>  
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="shortcut icon" type="image/x-icon" href="images/OCARINA_OF_TIME.png">
+  <meta name="theme-color" content="#000">
 </head>
 <body>
   <div id="header">
-    <h1><img src="images/ocarina.png" height="30px" style="vertical-align: middle; margin-bottom: 10px; margin-right: 10px">ZOOTR Tracker</h1>
-    <h5>a project by <a class="link" href="http://www.the404.nl">the404.nl</a></h5>
+    <h1>
+      <img src="images/ocarina.png" height="30px" style="vertical-align: middle; margin-bottom: 10px; margin-right: 10px">
+      ZOOTR Tracker
+    </h1>
+    <h5>
+      a project by 
+      <a class="link" href="http://www.the404.nl">the404.nl</a>
+    </h5>
   </div>
+
   <div id="right-side">
     <div id="status">
+      <span id="inventory-close" class="close" onclick="hideInventory()">×</span>
       <div id="inventory">
-        <h2>Inventory</h2>
+        <h2 id="inventory-title">Inventory</h2>
         <table class="borderless">
           <tr>
             <td class="item" data-item="DEKU_STICK" data-original-item="DEKU_STICK">
@@ -237,31 +246,31 @@
           </tr>
         </table>
       </div>
-      <form id="age-selector">
-        <label class="input-container" for="age-child">
-          <input id="age-child" class="radio" name="age" value="CHILD" type="radio" checked="checked">
-          <span class="checkmark"></span>
-          Child
-        </label>        
-        <label class="input-container" for="age-adult">
-          <input id="age-adult" class="radio" name="age" value="ADULT" type="radio">
-          Adult
-          <span class="checkmark"></span>
-        </label>
-      </form>
-      <form id="check-pedestal">
-        <button class="button">Check Pedestal</button>
-      </form>
-      <form id="settings-button">
-        <button class="button">Settings</button>
-      </form>      
+      
+      <div id="options">
+        <form id="age-selector">
+          <label class="input-container" for="age-child">
+            <input id="age-child" class="radio" name="age" value="CHILD" type="radio" checked="checked">
+            <span class="checkmark"></span>
+            Child
+          </label>        
+          <label class="input-container" for="age-adult">
+            <input id="age-adult" class="radio" name="age" value="ADULT" type="radio">
+            Adult
+            <span class="checkmark"></span>
+          </label>
+        </form>
+        <hr>
+        <span class=button onclick="$('#pedestal-modal').fadeIn()">Pedestal of Time Hints</span>
+        <br>
+        <span class=button onclick="$('#settings-modal').fadeIn()">Settings</span> 
+      </div>
     </div>       
   </div>   
 
-
   <div id="left-side">
     <div id="overworld">
-      <div class="tabWrapperSide" id="overworldTabs">
+      <div class="tabWrapper" id="overworldTabs">
         <span class="tabOverworld" id="kokiri-forest" onclick="currentPane(1)" style="background: black; color: white;"><span><b>&raquo;</b></span></span>
         <br>
         <span class="tabOverworld" id="hyrule-field" onclick="currentPane(2)"><span><b>&raquo;</b></span></span>
@@ -278,8 +287,10 @@
         <br>
         <span class="tabOverworld" id="gerudo-desert" onclick="currentPane(8)"><span><b>&raquo;</b></span></span>
         <br>
-        <br>
+        <span class="tabOverworld" id="inventory-tab" onclick="showInventory()"><span><b>&raquo;</b></span></span>
+        <br id="inventory-tab">
         <span class="tabOverworld" id="skulltula-tab" onclick="skullsOn()"><span><b>&raquo;</b></span></span>
+        
       </div>
       <div class="pane-container" style="border:none">
         <div id="locations">
@@ -298,37 +309,201 @@
         </div>        
       </div>
     </div>
-  </div>
-  
+  </div>  
 
-  <div id="overlay">
-    <div id="check-pedestal-popup" class="popup">
-      <h3>Pedestal of Time</h3>
-      <p>Read the pedestal of time, and click each hint in the order given to you.</p>
-      <form id="read-pedestal">
-        <button type="button" class="pedestal-hint button" value="Free">Link's Pocket</button>
-        <button type="button" class="pedestal-hint button" value="Deku">Ancient Tree</button>
-        <button type="button" class="pedestal-hint button" value="DC">Immense Cavern</button>
-        <button type="button" class="pedestal-hint button" value="Jabu">Belly of a Deity</button>
-        <button type="button" class="pedestal-hint button" value="Forest">Deep Forest</button>
-        <button type="button" class="pedestal-hint button" value="Fire">High Mountain</button>
-        <button type="button" class="pedestal-hint button" value="Water">Vast Lake</button>
-        <button type="button" class="pedestal-hint button" value="Shdw">House of the Dead</button>
-        <button type="button" class="pedestal-hint button" value="Spirit">Goddess of the Sand</button>
-      </form>
-    </div>
-    <div id="settings-popup" class="popup">
-      <form id="settings">
-        <table class="borderless"></table>
-      </form>
-      <div class="clear"></div>
-      <div id="footer">
-        Based off the work of Jared Branum,
-        <br>
-        which can be found <a href="https://github.com/jaredbranum/zootr-tracker">here.</a>
+
+
+  <div id="pedestal-modal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close" onclick="$('#pedestal-modal').fadeOut()">×</span>
+        <h3 id="pedestal-title">Pedestal of Time Hints</h3>
+        <h6 id="hint-warning">WARNING: You have more than one Medallion/Stone in the same place!</h6>
+      </div>
+      <div class="modal-body" style="max-height: 400px;"> 
+        <div class="row">
+          <div class="column">
+            <table class="medallion-table">
+              <tr>
+                <td></td>
+                <td></td>
+                <td>
+                  <div id="LIGHT_MEDALLION" class="item stone-hint" data-item="HINT_LIGHT_MEDALLION">
+                    <img src="images/LIGHT_MEDALLION.png">
+                    <label class="medallion-location"></label>
+                  </div>
+                </td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              <tr>            
+                <td>
+                  <div id="SHADOW_MEDALLION" class="item stone-hint" data-item="HINT_SHADOW_MEDALLION">
+                    <img src="images/SHADOW_MEDALLION.png">
+                    <label class="medallion-location"></label>
+                  </div>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                  <div id="FOREST_MEDALLION" class="item stone-hint" data-item="HINT_FOREST_MEDALLION">
+                    <img src="images/FOREST_MEDALLION.png">
+                    <label class="medallion-location"></label>
+                  </div>
+                </td>            
+              </tr>
+
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              <tr>            
+                <td>
+                  <div id="SPIRIT_MEDALLION" class="item stone-hint" data-item="HINT_SPIRIT_MEDALLION">
+                    <img src="images/SPIRIT_MEDALLION.png">
+                    <label class="medallion-location"></label>
+                  </div>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                  <div id="FIRE_MEDALLION" class="item stone-hint" data-item="HINT_FIRE_MEDALLION">
+                    <img src="images/FIRE_MEDALLION.png">
+                    <label class="medallion-location"></label>
+                  </div>
+                </td>            
+              </tr>
+
+              <tr>
+                <td></td>
+                <td></td>
+                <td>
+                  <div id="WATER_MEDALLION" class="item stone-hint" data-item="HINT_WATER_MEDALLION">
+                    <img src="images/WATER_MEDALLION.png">
+                    <label class="medallion-location"></label>
+                  </div>
+                </td>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
+          </div>
+          <div class="column">
+            <table class="medallion-table">
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              <tr>            
+                <td></td>
+                <td></td>
+                <td>
+                  <div id="KOKIRI_EMERALD" class="item stone-hint" data-item="HINT_KOKIRI_EMERALD">
+                    <img src="images/KOKIRI_EMERALD.png">
+                    <label class="medallion-location"></label>
+                  </div>
+                </td>
+                <td></td>
+                <td></td>            
+              </tr>
+
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              <tr>            
+                <td></td>
+                <td>
+                  <div id="GORONS_RUBY" class="item stone-hint" data-item="HINT_GORONS_RUBY">
+                    <img src="images/GORONS_RUBY.png">
+                    <label class="medallion-location"></label>
+                  </div>
+                </td>
+                <td></td>
+                <td>
+                  <div id="ZORAS_SAPPHIRE" class="item stone-hint" data-item="HINT_ZORAS_SAPPHIRE">
+                    <img src="images/ZORAS_SAPPHIRE.png">
+                    <label class="medallion-location"></label>
+                  </div>
+                </td>
+                <td></td>            
+              </tr>
+            </table>
+          </div>
+        </div> 
+      </div>
+      <div class="modal-footer">
+        <p class="blurb">Select a Medallion or Spiritual Stone to record its location,<br>as told by the Pedestal of Time.</p>            
       </div>
     </div>
   </div>
 
+  <div id="hint-select-modal" class="modal" active-hint="">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="hint-header"></h3>        
+      </div>
+      <div class="modal-body">
+        <p id="hint-text"></p>
+        <form id="read-pedestal">          
+          <button id="deku-hint" type="button" class="pedestal-hint button" value="Deku" long="Deku Tree">Ancient Tree</button>
+          <button id="dc-hint"type="button" class="pedestal-hint button" value="DC" long="Dodongo's Cavern">Immense Cavern</button>
+          <button id="jabu-hint" type="button" class="pedestal-hint button" value="Jabu" long="Jabu-Jabu's Belly">Belly of a Deity</button>
+          <button id="forest-hint" type="button" class="pedestal-hint button" value="Forest" long="Forest Temple">Deep Forest</button>
+          <button id="fire-hint" type="button" class="pedestal-hint button" value="Fire" long="Fire Temple">High Mountain</button>
+          <button id="water-hint" type="button" class="pedestal-hint button" value="Water" long="Water Temple">Vast Lake</button>
+          <button id="spirit-hint" type="button" class="pedestal-hint button" value="Spirit" long="Spirit Temple">Goddess of the Sand</button>
+          <button id="shdw-hint" type="button" class="pedestal-hint button" value="Shdw" long="Shadow Temple">House of the Dead</button>
+          <button id="light-hint" type="button" class="pedestal-hint button" value="Free" long="Link's Pocket">Link's Pocket</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <p style="color:transparent; font-size:10px">shoutouts to simpleflips</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="settings-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close" onclick="$('#settings-modal').fadeOut()">×</span>
+        <h3>Settings</h3>
+      </div>
+      <div class=modal-body>
+        <form id="settings">
+          <table class="borderless"></table>
+        </form>
+      </div>
+      <div class=modal-footer>
+        <a class="link" href="https://github.com/the404devs/zootr-tracker" style="color:white">v0.2.3 (02/18/19)</a>
+      </div>
+    </div>
+  </div>
+  <!-- <script type="text/javascript" src="../js/remove-branding.js"></script> -->
+  <div></div>
 </body>
 </html>

@@ -1,9 +1,9 @@
 define(["data/locations", "classes/itemCheck", "data/itemsAndSongs", "data/abilities", "data/ages"], function(Locations, ItemCheck, Items, Abilities, Age){
   return [
     // Kokiri Forest
-    new ItemCheck("Mido's House (x4)", Locations.KOKIRI_FOREST, [87,105], "0"),
-    new ItemCheck("Kokiri Sword", Locations.KOKIRI_FOREST, [96,275], "0", [{age: Age.CHILD}]),
-    new ItemCheck("Song of Storms Grotto", Locations.KOKIRI_FOREST, [85,70], "0", [{items: [Items.SONG_OF_STORMS]}]),
+    new ItemCheck("Mido's House (x4)", Locations.KOKIRI_FOREST, [70,85], "0"),
+    new ItemCheck("Kokiri Sword", Locations.KOKIRI_FOREST, [78,230], "0", [{age: Age.CHILD}]),
+    new ItemCheck("Song of Storms Grotto", Locations.KOKIRI_FOREST, [65,55], "0", [{items: [Items.SONG_OF_STORMS]}]),
     // Lost Woods
     new ItemCheck("Saria on Bridge", Locations.LOST_WOODS, [33,251], "0", [
       {settings: {FOREST: 'OPEN'}},
@@ -59,44 +59,44 @@ define(["data/locations", "classes/itemCheck", "data/itemsAndSongs", "data/abili
       {age: Age.CHILD, items: [Items.KOKIRI_EMERALD, Items.GORONS_RUBY, Items.ZORAS_SAPPHIRE]}
     ], {item: Items.OCARINA_OF_TIME, settings: {SHUFFLE_OCARINAS: false}}),
     // Hyrule Castle
-    new ItemCheck("Malon outside Castle", Locations.HYRULE_CASTLE, [145,210], "0", [
+    new ItemCheck("Malon outside Castle", Locations.HYRULE_CASTLE, [110,165], "0", [
       {age: Age.CHILD},
     ], {item: Items.WEIRD_EGG, settings: {SHUFFLE_WEIRD_EGG: false}}),
-    new ItemCheck("Zelda's Lullaby", Locations.HYRULE_CASTLE, [160,40], "0", [
+    new ItemCheck("Zelda's Lullaby", Locations.HYRULE_CASTLE, [130,30], "0", [
       {age: Age.CHILD, items: [Items.CHICKEN]},
       {age: Age.CHILD, items: [Items.ZELDAS_LETTER]},
       {age: Age.CHILD, abilities: [Abilities.BOMB], glitches: true},
     ]),
-    new ItemCheck("Din's Fire", Locations.HYRULE_CASTLE, [280,175], "0", [
+    new ItemCheck("Din's Fire", Locations.HYRULE_CASTLE, [220,134], "0", [
       {age: Age.CHILD, items: [Items.ZELDAS_LULLABY], abilities: [Abilities.BLAST]},
     ]),
     // Hyrule Market
-    new ItemCheck("Slingshot Game", Locations.MARKET, [120,50], "0", [{age: Age.CHILD}]),
-    new ItemCheck("Bombchu Bowling (Bag)", Locations.MARKET, [90,96], "0", [{age: Age.CHILD, items: [Items.BOMBS]}]),
-    new ItemCheck("Bombchu Bowling (Heart)", Locations.MARKET, [90,96], "0", [{age: Age.CHILD, items: [Items.BOMBS]}]),
-    new ItemCheck("Richard the Dog", Locations.MARKET, [210,125], "0", [{age: Age.CHILD}]),
-    new ItemCheck("Treasure Chest Game", Locations.MARKET, [125,147], "0", [
+    new ItemCheck("Slingshot Game", Locations.MARKET, [95,32], "0", [{age: Age.CHILD}]),
+    new ItemCheck("Bombchu Bowling (Bag)", Locations.MARKET, [60,69], "0", [{age: Age.CHILD, items: [Items.BOMBS]}]),
+    new ItemCheck("Bombchu Bowling (Heart)", Locations.MARKET, [60,69], "0", [{age: Age.CHILD, items: [Items.BOMBS]}]),
+    new ItemCheck("Richard the Dog", Locations.MARKET, [155,90], "0", [{age: Age.CHILD}]),
+    new ItemCheck("Treasure Chest Game", Locations.MARKET, [92,107], "0", [
       {age: Age.CHILD, offLogic: true},
       {age: Age.CHILD, items: [Items.LENS_OF_TRUTH]},
     ]),
-    new ItemCheck("Big Poes", Locations.MARKET, [200,217], "0", [
+    new ItemCheck("Big Poes", Locations.MARKET, [148,160], "0", [
       {age: Age.ADULT, items: [Items.EPONAS_SONG, Items.FAIRY_BOW], abilities: [Abilities.BOTTLE]},
       {age: Age.ADULT, items: [Items.FAIRY_BOW], abilities: [Abilities.BOTTLE], offLogic: true},
       {age: Age.ADULT, items: [Items.BOMBCHU], abilities: [Abilities.BOTTLE], offLogic: true},
     ]),
     // Temple of Time
-    new ItemCheck("Master Sword", Locations.TEMPLE_OF_TIME, [
+    new ItemCheck("Master Sword", Locations.TEMPLE_OF_TIME, [200,217], "0", [
       {age: Age.CHILD, settings: {DOOR_OF_TIME: 'OPEN'}},
       {age: Age.CHILD, items: [Items.SONG_OF_TIME]}
     ], {item: Items.MASTER_SWORD}),
-    new ItemCheck("Prelude of Light", Locations.TEMPLE_OF_TIME, [
+    new ItemCheck("Prelude of Light", Locations.TEMPLE_OF_TIME, [200,217], "0", [
       {age: Age.ADULT, items: [Items.FOREST_MEDALLION]}
     ]),
-    new ItemCheck("Light Arrows", Locations.TEMPLE_OF_TIME, [
+    new ItemCheck("Light Arrows", Locations.TEMPLE_OF_TIME, [200,217], "0", [
       {age: Age.ADULT, items: [Items.SHADOW_MEDALLION, Items.SPIRIT_MEDALLION]}
     ]),
     // Lon Lon Ranch
-    new ItemCheck("Talon's Cuccos", Locations.LON_LON_RANCH, [210,45], "0", [
+    new ItemCheck("Talon's Cuccos", Locations.LON_LON_RANCH, [190,37], "0", [
       {age: Age.CHILD, items: [Items.CHICKEN]},
       {age: Age.CHILD, items: [Items.ZELDAS_LETTER]},
       {age: Age.CHILD, items: [Items.KEATON_MASK]},
@@ -105,7 +105,7 @@ define(["data/locations", "classes/itemCheck", "data/itemsAndSongs", "data/abili
       {age: Age.CHILD, items: [Items.BUNNY_HOOD]},
       {age: Age.CHILD, items: [Items.MASK_OF_TRUTH]},
     ]),
-    new ItemCheck("Epona's Song", Locations.LON_LON_RANCH, [150,140], "0", [
+    new ItemCheck("Epona's Song", Locations.LON_LON_RANCH, [140,130], "0", [
       {age: Age.CHILD, checks: {location: Locations.HYRULE_CASTLE, name: "Malon outside Castle"}, items: [Items.FAIRY_OCARINA, Items.CHICKEN]},
       {age: Age.CHILD, checks: {location: Locations.HYRULE_CASTLE, name: "Malon outside Castle"}, items: [Items.FAIRY_OCARINA, Items.ZELDAS_LETTER]},
       {age: Age.CHILD, checks: {location: Locations.HYRULE_CASTLE, name: "Malon outside Castle"}, items: [Items.FAIRY_OCARINA, Items.KEATON_MASK]},
@@ -114,55 +114,55 @@ define(["data/locations", "classes/itemCheck", "data/itemsAndSongs", "data/abili
       {age: Age.CHILD, checks: {location: Locations.HYRULE_CASTLE, name: "Malon outside Castle"}, items: [Items.FAIRY_OCARINA, Items.BUNNY_HOOD]},
       {age: Age.CHILD, checks: {location: Locations.HYRULE_CASTLE, name: "Malon outside Castle"}, items: [Items.FAIRY_OCARINA, Items.MASK_OF_TRUTH]},
     ]),
-    new ItemCheck("Heart Piece", Locations.LON_LON_RANCH, [89,238], "0", [{age: Age.CHILD}]),
+    new ItemCheck("Heart Piece", Locations.LON_LON_RANCH, [80,214], "0", [{age: Age.CHILD}]),
     // Kakariko Village
-    new ItemCheck("Anju's Cuccos", Locations.KAKARIKO_VILLAGE, [233,225], "0", [{age: Age.CHILD}]),
-    new ItemCheck("Redead Grotto", Locations.KAKARIKO_VILLAGE, [170,150], "0", [{abilities: [Abilities.BLAST]}]),
-    new ItemCheck("Man on Roof", Locations.KAKARIKO_VILLAGE, [230,122], "0", [
+    new ItemCheck("Anju's Cuccos", Locations.KAKARIKO_VILLAGE, [200,190], "0", [{age: Age.CHILD}]),
+    new ItemCheck("Redead Grotto", Locations.KAKARIKO_VILLAGE, [145,125], "0", [{abilities: [Abilities.BLAST]}]),
+    new ItemCheck("Man on Roof", Locations.KAKARIKO_VILLAGE, [200,102], "0", [
       {age: Age.ADULT, items: [Items.HOOKSHOT]},
       {offLogic: true}
     ]),
-    new ItemCheck("Anju's Egg", Locations.KAKARIKO_VILLAGE, [237,232], "0", [{age: Age.ADULT}]),
-    new ItemCheck("Cow Cage", Locations.KAKARIKO_VILLAGE, [210,240], "0", [
+    new ItemCheck("Anju's Egg", Locations.KAKARIKO_VILLAGE, [200,190], "0", [{age: Age.ADULT}]),
+    new ItemCheck("Cow Cage", Locations.KAKARIKO_VILLAGE, [175,205], "0", [
       {age: Age.ADULT, items: [Items.HOOKSHOT]},
       {offLogic: true}
     ]),
-    new ItemCheck("Archery Game", Locations.KAKARIKO_VILLAGE, [222,192], "0", [{age: Age.ADULT, items: [Items.FAIRY_BOW]}]),
-    new ItemCheck("Back Grotto", Locations.KAKARIKO_VILLAGE, [245,100], "0"),
-    new ItemCheck("Windmill Heart", Locations.KAKARIKO_VILLAGE, [296,149], "0", [
+    new ItemCheck("Archery Game", Locations.KAKARIKO_VILLAGE, [188,162], "0", [{age: Age.ADULT, items: [Items.FAIRY_BOW]}]),
+    new ItemCheck("Back Grotto", Locations.KAKARIKO_VILLAGE, [210,82], "0"),
+    new ItemCheck("Windmill Heart", Locations.KAKARIKO_VILLAGE, [252,130], "0", [
       {age: Age.CHILD, items: [Items.BOOMERANG]},
       {age: Age.ADULT, items: [Items.SONG_OF_TIME]},
       {age: Age.ADULT, offLogic: true},
     ]),
-    new ItemCheck("10 Gold Skulltulas", Locations.KAKARIKO_VILLAGE, [170,187], "0", [
+    new ItemCheck("10 Gold Skulltulas", Locations.KAKARIKO_VILLAGE, [144,158], "0", [
       {itemCounts: [{count: 10, item: Items.GOLD_SKULLTULA}]},
     ]),
-    new ItemCheck("20 Gold Skulltulas", Locations.KAKARIKO_VILLAGE, [170,187], "0", [
+    new ItemCheck("20 Gold Skulltulas", Locations.KAKARIKO_VILLAGE, [144,158], "0", [
       {itemCounts: [{count: 20, item: Items.GOLD_SKULLTULA}]},
     ]),
-    new ItemCheck("30 Gold Skulltulas", Locations.KAKARIKO_VILLAGE, [170,187], "0", [
+    new ItemCheck("30 Gold Skulltulas", Locations.KAKARIKO_VILLAGE, [144,158], "0", [
       {itemCounts: [{count: 30, item: Items.GOLD_SKULLTULA}]},
     ]),
-    new ItemCheck("40 Gold Skulltulas", Locations.KAKARIKO_VILLAGE, [170,187], "0", [
+    new ItemCheck("40 Gold Skulltulas", Locations.KAKARIKO_VILLAGE, [144,158], "0", [
       {itemCounts: [{count: 40, item: Items.GOLD_SKULLTULA}]},
     ]),
-    new ItemCheck("50 Gold Skulltulas", Locations.KAKARIKO_VILLAGE, [170,187], "0", [
+    new ItemCheck("50 Gold Skulltulas", Locations.KAKARIKO_VILLAGE, [144,158], "0", [
       {itemCounts: [{count: 50, item: Items.GOLD_SKULLTULA}]},
     ]),
-    new ItemCheck("Song of Storms", Locations.KAKARIKO_VILLAGE, [296,159], "0", [{age: Age.ADULT, items: [Items.FAIRY_OCARINA]}]),
-    new ItemCheck("Nocturne of Shadow", Locations.KAKARIKO_VILLAGE, [240,150], "0", [{age: Age.ADULT, items: [Items.FOREST_MEDALLION, Items.FIRE_MEDALLION, Items.WATER_MEDALLION]}]),
+    new ItemCheck("Song of Storms", Locations.KAKARIKO_VILLAGE, [252,130], "0", [{age: Age.ADULT, items: [Items.FAIRY_OCARINA]}]),
+    new ItemCheck("Nocturne of Shadow", Locations.KAKARIKO_VILLAGE, [205,125], "0", [{age: Age.ADULT, items: [Items.FOREST_MEDALLION, Items.FIRE_MEDALLION, Items.WATER_MEDALLION]}]),
     // Graveyard
-    new ItemCheck("Shield Grave", Locations.GRAVEYARD, [190,120], "0"),
-    new ItemCheck("Dampe's Tour", Locations.GRAVEYARD, [170,130], "0", [{age: Age.CHILD}]),
-    new ItemCheck("Dampe's Race 1", Locations.GRAVEYARD, [145,60], "0", [{age: Age.ADULT}]),
-    new ItemCheck("Dampe's Race 2", Locations.GRAVEYARD, [155,60], "0", [{age: Age.ADULT}]),
-    new ItemCheck("Redead Grave", Locations.GRAVEYARD, [250,160], "0", [{items: [Items.SUNS_SONG]}]),
-    new ItemCheck("Royal Tomb Torches", Locations.GRAVEYARD, [320,133], "0", [
+    new ItemCheck("Shield Grave", Locations.GRAVEYARD, [95,55], "0"),
+    new ItemCheck("Dampe's Tour", Locations.GRAVEYARD, [85,70], "0", [{age: Age.CHILD}]),
+    new ItemCheck("Dampe's Race 1", Locations.GRAVEYARD, [75,25], "0", [{age: Age.ADULT}]),
+    new ItemCheck("Dampe's Race 2", Locations.GRAVEYARD, [75,25], "0", [{age: Age.ADULT}]),
+    new ItemCheck("Redead Grave", Locations.GRAVEYARD, [129,75], "0", [{items: [Items.SUNS_SONG]}]),
+    new ItemCheck("Royal Tomb Torches", Locations.GRAVEYARD, [160,63], "0", [
       {items: [Items.ZELDAS_LULLABY], abilities: [Abilities.BURN]},
       {age: Age.CHILD, items: [Items.ZELDAS_LULLABY, Items.DEKU_STICK], glitches: true}
     ]),
-    new ItemCheck("Sun's Song", Locations.GRAVEYARD, [330,133], "0", [{items: [Items.ZELDAS_LULLABY]}]),
-    new ItemCheck("High Crate", Locations.GRAVEYARD, [90,70], "0", [
+    new ItemCheck("Sun's Song", Locations.GRAVEYARD, [160,63], "0", [{items: [Items.ZELDAS_LULLABY]}]),
+    new ItemCheck("High Crate", Locations.GRAVEYARD, [45,30], "0", [
       {age: Age.ADULT, items: [Items.LONGSHOT]},
       {age: Age.ADULT, items: [Items.MAGIC_BEANS]},
       {age: Age.CHILD, items: [Items.BOOMERANG], offLogic: true},
@@ -252,41 +252,41 @@ define(["data/locations", "classes/itemCheck", "data/itemsAndSongs", "data/abili
       {age: Age.ADULT, items: [Items.LONGSHOT, Items.SONG_OF_TIME]}
     ]),
     // Zora's River
-    new ItemCheck("Heart Piece 1", Locations.ZORAS_RIVER, [170,50], "0", [
+    new ItemCheck("Heart Piece 1", Locations.ZORAS_RIVER, [132,35], "0", [
       {age: Age.CHILD, abilities: [Abilities.BLAST]},
       {age: Age.CHILD, abilities: [Abilities.SINK]},
       {age: Age.ADULT}
     ]),
-    new ItemCheck("Heart Piece 2", Locations.ZORAS_RIVER, [404,20], "0", [
+    new ItemCheck("Heart Piece 2", Locations.ZORAS_RIVER, [310,7], "0", [
       {age: Age.CHILD, abilities: [Abilities.BLAST]},
       {age: Age.CHILD, abilities: [Abilities.SINK]},
       {age: Age.ADULT}
     ]),
-    new ItemCheck("Frogs 1", Locations.ZORAS_RIVER, [210,45], "0", [
+    new ItemCheck("Frogs 1", Locations.ZORAS_RIVER, [160,30], "0", [
       {age: Age.CHILD, abilities: [Abilities.BLAST], items: [Items.SONG_OF_STORMS]},
       {age: Age.CHILD, abilities: [Abilities.SINK], items: [Items.SONG_OF_STORMS]},
     ]),
-    new ItemCheck("Frogs 2", Locations.ZORAS_RIVER, [210,45], "0", [
+    new ItemCheck("Frogs 2", Locations.ZORAS_RIVER, [160,30], "0", [
       {age: Age.CHILD, abilities: [Abilities.BLAST], items: [Items.ZELDAS_LULLABY, Items.EPONAS_SONG, Items.SARIAS_SONG, Items.SUNS_SONG, Items.SONG_OF_TIME]},
       {age: Age.CHILD, abilities: [Abilities.SINK], items: [Items.ZELDAS_LULLABY, Items.EPONAS_SONG, Items.SARIAS_SONG, Items.SUNS_SONG, Items.SONG_OF_TIME]}
     ]),
-    new ItemCheck("Song of Storms Grotto", Locations.ZORAS_RIVER, [30,120], "0", [
+    new ItemCheck("Song of Storms Grotto", Locations.ZORAS_RIVER, [20,90], "0", [
       {age: Age.CHILD, abilities: [Abilities.BLAST], items: [Items.SONG_OF_STORMS]},
       {age: Age.CHILD, abilities: [Abilities.SINK], items: [Items.SONG_OF_STORMS]},
       {age: Age.ADULT, items: [Items.SONG_OF_STORMS]}
     ]),
-    new ItemCheck("Open Grotto", Locations.ZORAS_RIVER, [170,145], "0", [
+    new ItemCheck("Open Grotto", Locations.ZORAS_RIVER, [130,110], "0", [
       {age: Age.CHILD, abilities: [Abilities.BLAST]},
       {age: Age.ADULT}
     ]),
     // Zora's Domain
-    new ItemCheck("Diving Game", Locations.ZORAS_DOMAIN, [132,130], "0", [{age: Age.CHILD}]),
-    new ItemCheck("Torch Run", Locations.ZORAS_DOMAIN, [132,150], "0", [{age: Age.CHILD, items: [Items.DEKU_STICK]}]),
-    new ItemCheck("King Zora", Locations.ZORAS_DOMAIN, [198,75], "0", [{age: Age.ADULT, abilities: [Abilities.BOTTLE]}]),
+    new ItemCheck("Diving Game", Locations.ZORAS_DOMAIN, [128,130], "0", [{age: Age.CHILD}]),
+    new ItemCheck("Torch Run", Locations.ZORAS_DOMAIN, [128,150], "0", [{age: Age.CHILD, items: [Items.DEKU_STICK]}]),
+    new ItemCheck("King Zora", Locations.ZORAS_DOMAIN, [192,75], "0", [{age: Age.ADULT, abilities: [Abilities.BOTTLE]}]),
     // Zora's Fountain
-    new ItemCheck("Farore's Wind", Locations.ZORAS_FOUNTAIN, [200,260], "0", [{items: [Items.ZELDAS_LULLABY], abilities: [Abilities.BOMB]}]),
-    new ItemCheck("Iceberg Heart", Locations.ZORAS_FOUNTAIN, [250,110], "0", [{age: Age.ADULT}]),
-    new ItemCheck("Underwater Heart", Locations.ZORAS_FOUNTAIN, [175,110], "0", [{age: Age.ADULT, items: [Items.IRON_BOOTS]}]),
+    new ItemCheck("Farore's Wind", Locations.ZORAS_FOUNTAIN, [171,220], "0", [{items: [Items.ZELDAS_LULLABY], abilities: [Abilities.BOMB]}]),
+    new ItemCheck("Iceberg Heart", Locations.ZORAS_FOUNTAIN, [215,95], "0", [{age: Age.ADULT}]),
+    new ItemCheck("Underwater Heart", Locations.ZORAS_FOUNTAIN, [160,95], "0", [{age: Age.ADULT, items: [Items.IRON_BOOTS]}]),
     // Lake Hylia
     new ItemCheck("Fishing (Child)", Locations.LAKE_HYLIA, [220,120], "0", [{age: Age.CHILD, items: [Items.KOKIRI_SWORD]}]),
     new ItemCheck("Ruto's Letter", Locations.LAKE_HYLIA, [160,120], "0", [{age: Age.CHILD, items: [Items.SILVER_SCALE]}]),
@@ -312,7 +312,7 @@ define(["data/locations", "classes/itemCheck", "data/itemsAndSongs", "data/abili
       {age: Age.ADULT, items: [Items.FAIRY_BOW, Items.HOOKSHOT], glitches: true},
     ]),
     // Gerudo Valley
-    new ItemCheck("Crate Heart", Locations.GERUDO_VALLEY, [200,190], "0", [
+    new ItemCheck("Crate Heart", Locations.GERUDO_VALLEY, [175,160], "0", [
       {age: Age.CHILD},
       {age: Age.ADULT, items: [Items.LONGSHOT]},
       {age: Age.ADULT, items: [Items.EPONAS_SONG]},
@@ -322,8 +322,8 @@ define(["data/locations", "classes/itemCheck", "data/itemsAndSongs", "data/abili
       {age: Age.ADULT, items: [Items.HOVER_BOOTS], abilities: [Abilities.SHIELD, Abilities.SLASH], glitches: true},
       {age: Age.ADULT, items: [Items.HOVER_BOOTS, Items.MEGATON_HAMMER], glitches: true},
     ]),
-    new ItemCheck("Waterfall Heart", Locations.GERUDO_VALLEY, [220,15], "0"),
-    new ItemCheck("Hammer Chest", Locations.GERUDO_VALLEY, [180,150], "0", [
+    new ItemCheck("Waterfall Heart", Locations.GERUDO_VALLEY, [192,10], "0"),
+    new ItemCheck("Hammer Chest", Locations.GERUDO_VALLEY, [150,130], "0", [
       {age: Age.ADULT, items: [Items.LONGSHOT, Items.MEGATON_HAMMER]},
       {age: Age.ADULT, items: [Items.EPONAS_SONG, Items.MEGATON_HAMMER]},
       {age: Age.ADULT, items: [Items.HOOKSHOT, Items.MEGATON_HAMMER], offLogic: true},
@@ -352,11 +352,11 @@ define(["data/locations", "classes/itemCheck", "data/itemsAndSongs", "data/abili
       {abilities: [Abilities.BURN]},
     ]),
     // Desert Colossus
-    new ItemCheck("Requiem of Spirit", Locations.DESERT_COLOSSUS, [40,137], "0"),
-    new ItemCheck("Nayru's Love", Locations.DESERT_COLOSSUS, [190,70], "0", [
+    new ItemCheck("Requiem of Spirit", Locations.DESERT_COLOSSUS, [30,104], "0"),
+    new ItemCheck("Nayru's Love", Locations.DESERT_COLOSSUS, [145,50], "0", [
       {items: [Items.ZELDAS_LULLABY], abilities: [Abilities.BOMB]},
     ]),
-    new ItemCheck("Arch Heart", Locations.DESERT_COLOSSUS, [64,137], "0", [
+    new ItemCheck("Arch Heart", Locations.DESERT_COLOSSUS, [48,104], "0", [
       {age: Age.ADULT, items: [Items.MAGIC_BEANS, Items.REQUIEM_OF_SPIRIT]},
       {age: Age.ADULT, items: [Items.MAGIC_BEANS], glitches: true},
       {age: Age.ADULT, abilities: [Abilities.SHIELD, Abilities.BOMB], glitches: true},
@@ -969,7 +969,7 @@ define(["data/locations", "classes/itemCheck", "data/itemsAndSongs", "data/abili
     new ItemCheck("Maze Left 3", Locations.GERUDO_TRAINING_GROUNDS),
     new ItemCheck("Ice Arrows", Locations.GERUDO_TRAINING_GROUNDS),
     // Ganon's Castle
-    new ItemCheck("Double Defense Fairy", Locations.GANONS_CASTLE, [295,103], "0", [
+    new ItemCheck("Double Defense Fairy", Locations.GANONS_CASTLE, [225,78], "0", [
       {age: Age.ADULT, items: [Items.GOLDEN_GAUNTLETS]},
       {age: Age.ADULT, glitches: true},
     ]),

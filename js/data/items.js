@@ -134,6 +134,15 @@ define(["classes/item", "classes/song", "data/ages", "data/abilities", "data/loc
   Items['MAP_' + Locations.DESERT_COLOSSUS] = new Item("Map (" + Locations.DESERT_COLOSSUS + ")");
   Items['MAP_' + Locations.GANONS_CASTLE] = new Item("Map (" + Locations.GANONS_CASTLE + ")");
 
-
+  //Fake Medallions/Stones, for pedestal hints
+  Items['HINT_KOKIRI_EMERALD'] = new Item('HINT_KOKIRI_EMERALD');
+  Items['HINT_GORONS_RUBY'] = new Item('HINT_GORONS_RUBY');
+  Items['HINT_ZORAS_SAPPHIRE'] = new Item('HINT_ZORAS_SAPPHIRE');
+  Items['HINT_FOREST_MEDALLION'] = new Item('HINT_FOREST_MEDALLION');
+  Items['HINT_FIRE_MEDALLION'] = new Item('HINT_FIRE_MEDALLION');
+  Items['HINT_WATER_MEDALLION'] = new Item('HINT_WATER_MEDALLION');
+  Items['HINT_SPIRIT_MEDALLION'] = new Item('HINT_SPIRIT_MEDALLION');
+  Items['HINT_SHADOW_MEDALLION'] = new Item('HINT_SHADOW_MEDALLION');
+  Items['HINT_LIGHT_MEDALLION'] = new Item('HINT_LIGHT_MEDALLION');
   return Items;
 });

@@ -53,13 +53,23 @@ at the top of the screen as you scroll down. We do the same here with the map an
 window.onscroll = function() {
 	var mapbox = document.getElementById("map-container");
 	var tabs = document.getElementById("overworldTabs");
-  var overlay = document.getElementById('overlay');
-	offset = window.pageYOffset-100;
+	offset = window.pageYOffset-84;
 	if (offset<0) {offset=0}
 	mapbox.style.marginTop =  offset +"px";
-	tabs.style.marginTop =  offset + 5 +"px";
-  overlay.style.marginTop =  offset +"px";
-};			
+	tabs.style.marginTop =  offset + 4 +"px";
+};	
+
+
+window.onresize = function() {
+  if ($(window).width()>1190){
+    hideInventory();
+    $('#right-side').css('position','sticky');
+    $('#right-side').css('width','270px');    
+  }
+  else{
+    $('#right-side').removeAttr('style');
+  }
+}		
 
 
 function skullsOn(){
@@ -70,6 +80,23 @@ function skullsOn(){
 function skullsOff(){
 	$('#skulltula-tab2').remove();
 	$('#overworldTabs').append(($('<span/>').attr('class','tabOverworld').attr('id','skulltula-tab').attr('onclick','skullsOn()')).append($('<span/>').append($('<b/>').html('&raquo'))));
+}
+
+function showInventory(){
+  if($(window).height()<=500){
+    $('#inventory-title').css('display','none');
+  }
+  else{
+    $('#inventory-title').css('display','block');
+  }
+  $('#right-side').css('position','fixed');
+  $('#right-side').css('width','500px');
+}
+
+function hideInventory(){
+  
+  $('#right-side').css('width','0');
+  $('#right-side').css('height','100%'); 
 }
 
 
