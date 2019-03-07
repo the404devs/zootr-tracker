@@ -3,6 +3,19 @@ A tracker application for Ocarina of Time Randomizer
 www.the404.nl/zootr  
 Based off the work of Jared Branum, which can be found [here](https://github.com/jaredbranum/zootr-tracker)
 
+### *0.2.4 (03/07/19)*
+----------------------
+- Fixed an issue that caused the application to load incorrectly, by attempting to create an Item object prior to loading the Item class. Oops.
+- Loading animation. Exact same one as used in 404editor, might make a more interesting one in the future
+- Dungeon maps in need of plotting:
+	- Water Temple
+- Dungeon maps in need of completion:
+	- Spirit Temple
+	- Shadow Temple
+	- Ganon's Castle
+	- BOTW
+	- GTG
+
 ### *0.2.3 (02/19/19)*
 ----------------------
 - A whole new interface for recording the hints from the Pedestal of Time.

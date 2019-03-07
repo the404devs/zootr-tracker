@@ -9,6 +9,8 @@ define(["require", "jquery", "data/ages", "data/abilities", "data/locations", "d
   } 
   window.itemChecksByLocation = {};
   window.Items = Items;
+  // window.Songs = Songs;
+  
 
   var generateLocationList = function(container, regions){
     var region, location, header, keys;
@@ -166,6 +168,15 @@ define(["require", "jquery", "data/ages", "data/abilities", "data/locations", "d
       .append($('<span/>').attr('class','floor').attr('num','1F').attr('style','background-color:black;color:white').html('1F'));
       $('#map-container').attr('floor','1F');
       $("#map-background").attr('src',"images/MAP_FIRE_TEMPLE_1F.png");
+      $("#floor-indicator").html("(1F)");
+    }
+    else if (location===Locations.WATER_TEMPLE){      
+      $('#floor-selector').append($('<span/>').attr('class','floor').attr('num','3F').html('3F')).append($('<br/>'))
+      .append($('<span/>').attr('class','floor').attr('num','2F').html('2F')).append($('<br/>'))
+      .append($('<span/>').attr('class','floor').attr('num','1F').attr('style','background-color:black;color:white').html('1F')).append($('<br/>'))
+      .append($('<span/>').attr('class','floor').attr('num','B1').html('B1')).append($('<br/>'));
+      $('#map-container').attr('floor','1F');
+      $("#map-background").attr('src',"images/MAP_WATER_TEMPLE_1F.png");
       $("#floor-indicator").html("(1F)");
     }
   };
@@ -480,8 +491,22 @@ define(["require", "jquery", "data/ages", "data/abilities", "data/locations", "d
     window.checks = ItemChecks;
     window.tracker = new ItemTracker();
     window.tracker.init();
+    $('#loader').fadeOut();
+    $('#header').fadeIn();
+    $('#right-side').fadeIn();
+    $('#left-side').fadeIn();
     $(function(){$("div").last().remove();});
   });
 });
 
 
+function test(song){
+  song.notes.forEach(function(note){
+    console.log(note);
+    $('#note-container').append($('<img />').attr("class","song-note").attr("src","song/"+note+".png"))
+  });
+}
+
+function test2(){
+  $('.song-note').each(function(){$(this).delay(1000).fadeOut()});
+}

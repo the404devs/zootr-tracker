@@ -1001,3 +1001,45 @@ select, option{
 #settings-modal .modal-content{
   width: 400px;
 }
+
+#loading-anim{
+  text-align: center;
+  /*width: 100%;*/
+  /*height: 100%;*/
+  position: absolute;
+  z-index: 10;
+  background-color: black;
+}
+
+.song-note{
+  width:64px;
+  /*visibility: hidden;*/
+}
+
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 11;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border: 8px solid white;
+  border-radius: 50%;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  width: 80px;
+  height: 80px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

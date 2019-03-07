@@ -93,8 +93,7 @@ function showInventory(){
   $('#right-side').css('width','500px');
 }
 
-function hideInventory(){
-  
+function hideInventory(){  
   $('#right-side').css('width','0');
   $('#right-side').css('height','100%'); 
 }

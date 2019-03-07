@@ -1,509 +1,517 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>ZOOTR Tracker</title>
-  <script data-main="js/app" src="js/lib/require.js"></script>  
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link rel="shortcut icon" type="image/x-icon" href="images/OCARINA_OF_TIME.png">
-  <meta name="theme-color" content="#000">
-</head>
-<body>
-  <div id="header">
-    <h1>
-      <img src="images/ocarina.png" height="30px" style="vertical-align: middle; margin-bottom: 10px; margin-right: 10px">
-      ZOOTR Tracker
-    </h1>
-    <h5>
-      a project by 
-      <a class="link" href="http://www.the404.nl">the404.nl</a>
-    </h5>
-  </div>
+  <head>
+    <title>ZOOTR Tracker</title>
+    <script data-main="js/app" src="js/lib/require.js"></script>  
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="images/OCARINA_OF_TIME.png">
+    <meta name="theme-color" content="#000">
+  </head>
+  <body>
+    <div id="header" style="display: none">
+      <h1>
+        <img src="images/ocarina.png" height="30px" style="vertical-align: middle; margin-bottom: 10px; margin-right: 10px">
+        ZOOTR Tracker
+      </h1>
+      <h5>
+        a project by 
+        <a class="link" href="http://www.the404.nl">the404.nl</a>
+      </h5>
+      <div id="note-container"></div>
+    </div>
 
-  <div id="right-side">
-    <div id="status">
-      <span id="inventory-close" class="close" onclick="hideInventory()">×</span>
-      <div id="inventory">
-        <h2 id="inventory-title">Inventory</h2>
-        <table class="borderless">
-          <tr>
-            <td class="item" data-item="DEKU_STICK" data-original-item="DEKU_STICK">
-              <img src="images/DEKU_STICK.png" />
-            </td>
-            <td class="item" data-item="DEKU_NUTS" data-original-item="DEKU_NUTS">
-              <img src="images/DEKU_NUTS.png" />
-            </td>
-            <td class="item" data-item="BOMBS" data-original-item="BOMBS">
-              <img src="images/BOMBS.png" />
-            </td>
-            <td class="item" data-item="FAIRY_BOW" data-original-item="FAIRY_BOW">
-              <img src="images/FAIRY_BOW.png" />
-            </td>
-            <td class="item" data-item="FIRE_ARROWS" data-original-item="FIRE_ARROWS">
-              <img src="images/FIRE_ARROWS.png" />
-            </td>
-            <td class="item" data-item="DINS_FIRE" data-original-item="DINS_FIRE">
-              <img src="images/DINS_FIRE.png" />
-            </td>
-          </tr>
-          <tr>
-            <td class="item" data-item="FAIRY_SLINGSHOT" data-original-item="FAIRY_SLINGSHOT">
-              <img src="images/FAIRY_SLINGSHOT.png" />
-            </td>
-            <td class="item" data-item="FAIRY_OCARINA" data-original-item="FAIRY_OCARINA">
-              <img src="images/FAIRY_OCARINA.png" />
-            </td>
-            <td class="item" data-item="BOMBCHU" data-original-item="BOMBCHU">
-              <img src="images/BOMBCHU.png" />
-            </td>
-            <td class="item" data-item="HOOKSHOT" data-original-item="HOOKSHOT">
-              <img src="images/HOOKSHOT.png" />
-            </td>
-            <td class="item" data-item="ICE_ARROWS" data-original-item="ICE_ARROWS">
-              <img src="images/ICE_ARROWS.png" />
-            </td>
-            <td class="item" data-item="FARORES_WIND" data-original-item="FARORES_WIND">
-              <img src="images/FARORES_WIND.png" />
-            </td>
-          </tr>
-          <tr>
-            <td class="item" data-item="BOOMERANG" data-original-item="BOOMERANG">
-              <img src="images/BOOMERANG.png" />
-            </td>
-            <td class="item" data-item="LENS_OF_TRUTH" data-original-item="LENS_OF_TRUTH">
-              <img src="images/LENS_OF_TRUTH.png" />
-            </td>
-            <td class="item" data-item="MAGIC_BEANS" data-original-item="MAGIC_BEANS">
-              <img src="images/MAGIC_BEANS.png" />
-            </td>
-            <td class="item" data-item="MEGATON_HAMMER" data-original-item="MEGATON_HAMMER">
-              <img src="images/MEGATON_HAMMER.png" />
-            </td>
-            <td class="item" data-item="LIGHT_ARROWS" data-original-item="LIGHT_ARROWS">
-              <img src="images/LIGHT_ARROWS.png" />
-            </td>
-            <td class="item" data-item="NAYRUS_LOVE" data-original-item="NAYRUS_LOVE">
-              <img src="images/NAYRUS_LOVE.png" />
-            </td>
-          </tr>
-          <tr>
-            <td class="item" data-item="BOTTLE" data-original-item="BOTTLE">
-              <img src="images/BOTTLE.png" />
-              <span class="count"></span>
-            </td>
-            <td class="item" data-item="RUTOS_LETTER" data-original-item="RUTOS_LETTER">
-              <img src="images/RUTOS_LETTER.png" />
-            </td>
-            <td class="item" data-item="POCKET_EGG" data-original-item="POCKET_EGG">
-              <img src="images/POCKET_EGG.png" />
-              <span class="subtitle">Adult</span>
-            </td>
-            <td class="item" data-item="WEIRD_EGG" data-original-item="WEIRD_EGG">
-              <img src="images/WEIRD_EGG.png" />
-              <span class="subtitle">Child</span>
-            </td>
-            <td class="item" data-item="SILVER_SCALE" data-original-item="SILVER_SCALE">
-              <img src="images/SILVER_SCALE.png" />
-            </td>
-            <td class="item" data-item="GORONS_BRACELET" data-original-item="GORONS_BRACELET">
-              <img src="images/GORONS_BRACELET.png" />
-            </td>
-          </tr>
-          <tr>
-            <td class="item" data-item="ZELDAS_LULLABY" data-original-item="ZELDAS_LULLABY">
-              <img src="images/ZELDAS_LULLABY.png" />
-              <span class="subtitle">ZL</span>
-            </td>
-            <td class="item" data-item="EPONAS_SONG" data-original-item="EPONAS_SONG">
-              <img src="images/EPONAS_SONG.png" />
-              <span class="subtitle">Epona</span>
-            </td>
-            <td class="item" data-item="SARIAS_SONG" data-original-item="SARIAS_SONG">
-              <img src="images/SARIAS_SONG.png" />
-              <span class="subtitle">Saria</span>
-            </td>
-            <td class="item" data-item="SUNS_SONG" data-original-item="SUNS_SONG">
-              <img src="images/SUNS_SONG.png" />
-              <span class="subtitle">Sun</span>
-            </td>
-            <td class="item" data-item="SONG_OF_TIME" data-original-item="SONG_OF_TIME">
-              <img src="images/SONG_OF_TIME.png" />
-              <span class="subtitle">SoT</span>
-            </td>
-            <td class="item" data-item="SONG_OF_STORMS" data-original-item="SONG_OF_STORMS">
-              <img src="images/SONG_OF_STORMS.png" />
-              <span class="subtitle">SoS</span>
-            </td>
-          </tr>
-          <tr>
-            <td class="item" data-item="MINUET_OF_FOREST" data-original-item="MINUET_OF_FOREST">
-              <img src="images/MINUET_OF_FOREST.png" />
-            </td>
-            <td class="item" data-item="BOLERO_OF_FIRE" data-original-item="BOLERO_OF_FIRE">
-              <img src="images/BOLERO_OF_FIRE.png" />
-            </td>
-            <td class="item" data-item="SERENADE_OF_WATER" data-original-item="SERENADE_OF_WATER">
-              <img src="images/SERENADE_OF_WATER.png" />
-            </td>
-            <td class="item" data-item="REQUIEM_OF_SPIRIT" data-original-item="REQUIEM_OF_SPIRIT">
-              <img src="images/REQUIEM_OF_SPIRIT.png" />
-            </td>
-            <td class="item" data-item="NOCTURNE_OF_SHADOW" data-original-item="NOCTURNE_OF_SHADOW">
-              <img src="images/NOCTURNE_OF_SHADOW.png" />
-            </td>
-            <td class="item" data-item="PRELUDE_OF_LIGHT" data-original-item="PRELUDE_OF_LIGHT">
-              <img src="images/PRELUDE_OF_LIGHT.png" />
-            </td>
-          </tr>
-          <tr>
-            <td class="item" data-item="KOKIRI_SWORD" data-original-item="KOKIRI_SWORD">
-              <img src="images/KOKIRI_SWORD.png" />
-            </td>
-            <td class="item" data-item="MASTER_SWORD" data-original-item="MASTER_SWORD">
-              <img src="images/MASTER_SWORD.png" />
-            </td>
-            <td class="item" data-item="BIGGORONS_SWORD" data-original-item="BIGGORONS_SWORD">
-              <img src="images/BIGGORONS_SWORD.png" />
-            </td>
-            <td class="item" data-item="DEKU_SHIELD" data-original-item="DEKU_SHIELD">
-              <img src="images/DEKU_SHIELD.png" />
-            </td>
-            <td class="item" data-item="HYLIAN_SHIELD" data-original-item="HYLIAN_SHIELD">
-              <img src="images/HYLIAN_SHIELD.png" />
-            </td>
-            <td class="item" data-item="MIRROR_SHIELD" data-original-item="MIRROR_SHIELD">
-              <img src="images/MIRROR_SHIELD.png" />
-            </td>
-          </tr>
-          <tr>
-            <td class="item" data-item="GORON_TUNIC" data-original-item="GORON_TUNIC">
-              <img src="images/GORON_TUNIC.png" />
-            </td>
-            <td class="item" data-item="ZORA_TUNIC" data-original-item="ZORA_TUNIC">
-              <img src="images/ZORA_TUNIC.png" />
-            </td>
-            <td class="item" data-item="IRON_BOOTS" data-original-item="IRON_BOOTS">
-              <img src="images/IRON_BOOTS.png" />
-            </td>
-            <td class="item" data-item="HOVER_BOOTS" data-original-item="HOVER_BOOTS">
-              <img src="images/HOVER_BOOTS.png" />
-            </td>
-            <td class="item" data-item="ADULTS_WALLET" data-original-item="ADULTS_WALLET">
-              <img src="images/ADULTS_WALLET.png" />
-            </td>
-            <td class="item" data-item="GERUDOS_CARD" data-original-item="GERUDOS_CARD">
-              <img src="images/GERUDOS_CARD.png" />
-            </td>
-          </tr>
-          <tr>
-            <td class="item medallion" data-item="FOREST_MEDALLION" data-original-item="FOREST_MEDALLION">
-              <img src="images/FOREST_MEDALLION.png" />
-              <span class="subtitle"></span>
-            </td>
-            <td class="item medallion" data-item="FIRE_MEDALLION" data-original-item="FIRE_MEDALLION">
-              <img src="images/FIRE_MEDALLION.png" />
-              <span class="subtitle"></span>
-            </td>
-            <td class="item medallion" data-item="WATER_MEDALLION" data-original-item="WATER_MEDALLION">
-              <img src="images/WATER_MEDALLION.png" />
-              <span class="subtitle"></span>
-            </td>
-            <td class="item medallion" data-item="SPIRIT_MEDALLION" data-original-item="SPIRIT_MEDALLION">
-              <img src="images/SPIRIT_MEDALLION.png" />
-              <span class="subtitle"></span>
-            </td>
-            <td class="item medallion" data-item="SHADOW_MEDALLION" data-original-item="SHADOW_MEDALLION">
-              <img src="images/SHADOW_MEDALLION.png" />
-              <span class="subtitle"></span>
-            </td>
-            <td class="item medallion" data-item="LIGHT_MEDALLION" data-original-item="LIGHT_MEDALLION">
-              <img src="images/LIGHT_MEDALLION.png" />
-              <span class="subtitle"></span>
-            </td>
-          </tr>
-          <tr>
-            <td class="item stone" data-item="KOKIRI_EMERALD" data-original-item="KOKIRI_EMERALD">
-              <img src="images/KOKIRI_EMERALD.png" />
-              <span class="subtitle"></span>
-            </td>
-            <td class="item stone" data-item="GORONS_RUBY" data-original-item="GORONS_RUBY">
-              <img src="images/GORONS_RUBY.png" />
-              <span class="subtitle"></span>
-            </td>
-            <td class="item stone" data-item="ZORAS_SAPPHIRE" data-original-item="ZORAS_SAPPHIRE">
-              <img src="images/ZORAS_SAPPHIRE.png" />
-              <span class="subtitle"></span>
-            </td>
-            <td class="item" data-item="MAGIC" data-original-item="MAGIC">
-              <img src="images/MAGIC.png" />
-            </td>
-            <td class="item" data-item="STONE_OF_AGONY" data-original-item="STONE_OF_AGONY">
-              <img src="images/STONE_OF_AGONY.png" />
-            </td>
-            <td class="item" data-item="GOLD_SKULLTULA" data-original-item="GOLD_SKULLTULA">
-              <img src="images/GOLD_SKULLTULA.png" />
-              <span class="count"></span>
-            </td>
-          </tr>
-        </table>
+<!--     <div id="loading-anim">
+      <div id="anim-background">
+        <img src="song/staff.png" width="75%">
       </div>
-      
-      <div id="options">
-        <form id="age-selector">
-          <label class="input-container" for="age-child">
-            <input id="age-child" class="radio" name="age" value="CHILD" type="radio" checked="checked">
-            <span class="checkmark"></span>
-            Child
-          </label>        
-          <label class="input-container" for="age-adult">
-            <input id="age-adult" class="radio" name="age" value="ADULT" type="radio">
-            Adult
-            <span class="checkmark"></span>
-          </label>
-        </form>
-        <hr>
-        <span class=button onclick="$('#pedestal-modal').fadeIn()">Pedestal of Time Hints</span>
-        <br>
-        <span class=button onclick="$('#settings-modal').fadeIn()">Settings</span> 
-      </div>
-    </div>       
-  </div>   
+    </div> -->
 
-  <div id="left-side">
-    <div id="overworld">
-      <div class="tabWrapper" id="overworldTabs">
-        <span class="tabOverworld" id="kokiri-forest" onclick="currentPane(1)" style="background: black; color: white;"><span><b>&raquo;</b></span></span>
-        <br>
-        <span class="tabOverworld" id="hyrule-field" onclick="currentPane(2)"><span><b>&raquo;</b></span></span>
-        <br>
-        <span class="tabOverworld" id="hyrule-castle" onclick="currentPane(3)"><span><b>&raquo;</b></span></span>
-        <br>
-        <span class="tabOverworld" id="kakariko-village" onclick="currentPane(4)"><span><b>&raquo;</b></span></span>
-        <br>
-        <span class="tabOverworld" id="death-mountain" onclick="currentPane(5)"><span><b>&raquo;</b></span></span>
-        <br>
-        <span class="tabOverworld" id="zoras-river" onclick="currentPane(6)"><span><b>&raquo;</b></span></span>
-        <br>
-        <span class="tabOverworld" id="lake-hylia" onclick="currentPane(7)"><span><b>&raquo;</b></span></span>
-        <br>
-        <span class="tabOverworld" id="gerudo-desert" onclick="currentPane(8)"><span><b>&raquo;</b></span></span>
-        <br>
-        <span class="tabOverworld" id="inventory-tab" onclick="showInventory()"><span><b>&raquo;</b></span></span>
-        <br id="inventory-tab">
-        <span class="tabOverworld" id="skulltula-tab" onclick="skullsOn()"><span><b>&raquo;</b></span></span>
+    <div id="loader"></div>
+
+    <div id="right-side" style="display: none">
+      <div id="status">
+        <span id="inventory-close" class="close" onclick="hideInventory()">×</span>
+        <div id="inventory">
+          <h2 id="inventory-title">Inventory</h2>
+          <table class="borderless">
+            <tr>
+              <td class="item" data-item="DEKU_STICK" data-original-item="DEKU_STICK">
+                <img src="images/DEKU_STICK.png" />
+              </td>
+              <td class="item" data-item="DEKU_NUTS" data-original-item="DEKU_NUTS">
+                <img src="images/DEKU_NUTS.png" />
+              </td>
+              <td class="item" data-item="BOMBS" data-original-item="BOMBS">
+                <img src="images/BOMBS.png" />
+              </td>
+              <td class="item" data-item="FAIRY_BOW" data-original-item="FAIRY_BOW">
+                <img src="images/FAIRY_BOW.png" />
+              </td>
+              <td class="item" data-item="FIRE_ARROWS" data-original-item="FIRE_ARROWS">
+                <img src="images/FIRE_ARROWS.png" />
+              </td>
+              <td class="item" data-item="DINS_FIRE" data-original-item="DINS_FIRE">
+                <img src="images/DINS_FIRE.png" />
+              </td>
+            </tr>
+            <tr>
+              <td class="item" data-item="FAIRY_SLINGSHOT" data-original-item="FAIRY_SLINGSHOT">
+                <img src="images/FAIRY_SLINGSHOT.png" />
+              </td>
+              <td class="item" data-item="FAIRY_OCARINA" data-original-item="FAIRY_OCARINA">
+                <img src="images/FAIRY_OCARINA.png" />
+              </td>
+              <td class="item" data-item="BOMBCHU" data-original-item="BOMBCHU">
+                <img src="images/BOMBCHU.png" />
+              </td>
+              <td class="item" data-item="HOOKSHOT" data-original-item="HOOKSHOT">
+                <img src="images/HOOKSHOT.png" />
+              </td>
+              <td class="item" data-item="ICE_ARROWS" data-original-item="ICE_ARROWS">
+                <img src="images/ICE_ARROWS.png" />
+              </td>
+              <td class="item" data-item="FARORES_WIND" data-original-item="FARORES_WIND">
+                <img src="images/FARORES_WIND.png" />
+              </td>
+            </tr>
+            <tr>
+              <td class="item" data-item="BOOMERANG" data-original-item="BOOMERANG">
+                <img src="images/BOOMERANG.png" />
+              </td>
+              <td class="item" data-item="LENS_OF_TRUTH" data-original-item="LENS_OF_TRUTH">
+                <img src="images/LENS_OF_TRUTH.png" />
+              </td>
+              <td class="item" data-item="MAGIC_BEANS" data-original-item="MAGIC_BEANS">
+                <img src="images/MAGIC_BEANS.png" />
+              </td>
+              <td class="item" data-item="MEGATON_HAMMER" data-original-item="MEGATON_HAMMER">
+                <img src="images/MEGATON_HAMMER.png" />
+              </td>
+              <td class="item" data-item="LIGHT_ARROWS" data-original-item="LIGHT_ARROWS">
+                <img src="images/LIGHT_ARROWS.png" />
+              </td>
+              <td class="item" data-item="NAYRUS_LOVE" data-original-item="NAYRUS_LOVE">
+                <img src="images/NAYRUS_LOVE.png" />
+              </td>
+            </tr>
+            <tr>
+              <td class="item" data-item="BOTTLE" data-original-item="BOTTLE">
+                <img src="images/BOTTLE.png" />
+                <span class="count"></span>
+              </td>
+              <td class="item" data-item="RUTOS_LETTER" data-original-item="RUTOS_LETTER">
+                <img src="images/RUTOS_LETTER.png" />
+              </td>
+              <td class="item" data-item="POCKET_EGG" data-original-item="POCKET_EGG">
+                <img src="images/POCKET_EGG.png" />
+                <span class="subtitle">Adult</span>
+              </td>
+              <td class="item" data-item="WEIRD_EGG" data-original-item="WEIRD_EGG">
+                <img src="images/WEIRD_EGG.png" />
+                <span class="subtitle">Child</span>
+              </td>
+              <td class="item" data-item="SILVER_SCALE" data-original-item="SILVER_SCALE">
+                <img src="images/SILVER_SCALE.png" />
+              </td>
+              <td class="item" data-item="GORONS_BRACELET" data-original-item="GORONS_BRACELET">
+                <img src="images/GORONS_BRACELET.png" />
+              </td>
+            </tr>
+            <tr>
+              <td class="item" data-item="ZELDAS_LULLABY" data-original-item="ZELDAS_LULLABY">
+                <img src="images/ZELDAS_LULLABY.png" />
+                <span class="subtitle">ZL</span>
+              </td>
+              <td class="item" data-item="EPONAS_SONG" data-original-item="EPONAS_SONG">
+                <img src="images/EPONAS_SONG.png" />
+                <span class="subtitle">Epona</span>
+              </td>
+              <td class="item" data-item="SARIAS_SONG" data-original-item="SARIAS_SONG">
+                <img src="images/SARIAS_SONG.png" />
+                <span class="subtitle">Saria</span>
+              </td>
+              <td class="item" data-item="SUNS_SONG" data-original-item="SUNS_SONG">
+                <img src="images/SUNS_SONG.png" />
+                <span class="subtitle">Sun</span>
+              </td>
+              <td class="item" data-item="SONG_OF_TIME" data-original-item="SONG_OF_TIME">
+                <img src="images/SONG_OF_TIME.png" />
+                <span class="subtitle">SoT</span>
+              </td>
+              <td class="item" data-item="SONG_OF_STORMS" data-original-item="SONG_OF_STORMS">
+                <img src="images/SONG_OF_STORMS.png" />
+                <span class="subtitle">SoS</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="item" data-item="MINUET_OF_FOREST" data-original-item="MINUET_OF_FOREST">
+                <img src="images/MINUET_OF_FOREST.png" />
+              </td>
+              <td class="item" data-item="BOLERO_OF_FIRE" data-original-item="BOLERO_OF_FIRE">
+                <img src="images/BOLERO_OF_FIRE.png" />
+              </td>
+              <td class="item" data-item="SERENADE_OF_WATER" data-original-item="SERENADE_OF_WATER">
+                <img src="images/SERENADE_OF_WATER.png" />
+              </td>
+              <td class="item" data-item="REQUIEM_OF_SPIRIT" data-original-item="REQUIEM_OF_SPIRIT">
+                <img src="images/REQUIEM_OF_SPIRIT.png" />
+              </td>
+              <td class="item" data-item="NOCTURNE_OF_SHADOW" data-original-item="NOCTURNE_OF_SHADOW">
+                <img src="images/NOCTURNE_OF_SHADOW.png" />
+              </td>
+              <td class="item" data-item="PRELUDE_OF_LIGHT" data-original-item="PRELUDE_OF_LIGHT">
+                <img src="images/PRELUDE_OF_LIGHT.png" />
+              </td>
+            </tr>
+            <tr>
+              <td class="item" data-item="KOKIRI_SWORD" data-original-item="KOKIRI_SWORD">
+                <img src="images/KOKIRI_SWORD.png" />
+              </td>
+              <td class="item" data-item="MASTER_SWORD" data-original-item="MASTER_SWORD">
+                <img src="images/MASTER_SWORD.png" />
+              </td>
+              <td class="item" data-item="BIGGORONS_SWORD" data-original-item="BIGGORONS_SWORD">
+                <img src="images/BIGGORONS_SWORD.png" />
+              </td>
+              <td class="item" data-item="DEKU_SHIELD" data-original-item="DEKU_SHIELD">
+                <img src="images/DEKU_SHIELD.png" />
+              </td>
+              <td class="item" data-item="HYLIAN_SHIELD" data-original-item="HYLIAN_SHIELD">
+                <img src="images/HYLIAN_SHIELD.png" />
+              </td>
+              <td class="item" data-item="MIRROR_SHIELD" data-original-item="MIRROR_SHIELD">
+                <img src="images/MIRROR_SHIELD.png" />
+              </td>
+            </tr>
+            <tr>
+              <td class="item" data-item="GORON_TUNIC" data-original-item="GORON_TUNIC">
+                <img src="images/GORON_TUNIC.png" />
+              </td>
+              <td class="item" data-item="ZORA_TUNIC" data-original-item="ZORA_TUNIC">
+                <img src="images/ZORA_TUNIC.png" />
+              </td>
+              <td class="item" data-item="IRON_BOOTS" data-original-item="IRON_BOOTS">
+                <img src="images/IRON_BOOTS.png" />
+              </td>
+              <td class="item" data-item="HOVER_BOOTS" data-original-item="HOVER_BOOTS">
+                <img src="images/HOVER_BOOTS.png" />
+              </td>
+              <td class="item" data-item="ADULTS_WALLET" data-original-item="ADULTS_WALLET">
+                <img src="images/ADULTS_WALLET.png" />
+              </td>
+              <td class="item" data-item="GERUDOS_CARD" data-original-item="GERUDOS_CARD">
+                <img src="images/GERUDOS_CARD.png" />
+              </td>
+            </tr>
+            <tr>
+              <td class="item medallion" data-item="FOREST_MEDALLION" data-original-item="FOREST_MEDALLION">
+                <img src="images/FOREST_MEDALLION.png" />
+                <span class="subtitle"></span>
+              </td>
+              <td class="item medallion" data-item="FIRE_MEDALLION" data-original-item="FIRE_MEDALLION">
+                <img src="images/FIRE_MEDALLION.png" />
+                <span class="subtitle"></span>
+              </td>
+              <td class="item medallion" data-item="WATER_MEDALLION" data-original-item="WATER_MEDALLION">
+                <img src="images/WATER_MEDALLION.png" />
+                <span class="subtitle"></span>
+              </td>
+              <td class="item medallion" data-item="SPIRIT_MEDALLION" data-original-item="SPIRIT_MEDALLION">
+                <img src="images/SPIRIT_MEDALLION.png" />
+                <span class="subtitle"></span>
+              </td>
+              <td class="item medallion" data-item="SHADOW_MEDALLION" data-original-item="SHADOW_MEDALLION">
+                <img src="images/SHADOW_MEDALLION.png" />
+                <span class="subtitle"></span>
+              </td>
+              <td class="item medallion" data-item="LIGHT_MEDALLION" data-original-item="LIGHT_MEDALLION">
+                <img src="images/LIGHT_MEDALLION.png" />
+                <span class="subtitle"></span>
+              </td>
+            </tr>
+            <tr>
+              <td class="item stone" data-item="KOKIRI_EMERALD" data-original-item="KOKIRI_EMERALD">
+                <img src="images/KOKIRI_EMERALD.png" />
+                <span class="subtitle"></span>
+              </td>
+              <td class="item stone" data-item="GORONS_RUBY" data-original-item="GORONS_RUBY">
+                <img src="images/GORONS_RUBY.png" />
+                <span class="subtitle"></span>
+              </td>
+              <td class="item stone" data-item="ZORAS_SAPPHIRE" data-original-item="ZORAS_SAPPHIRE">
+                <img src="images/ZORAS_SAPPHIRE.png" />
+                <span class="subtitle"></span>
+              </td>
+              <td class="item" data-item="MAGIC" data-original-item="MAGIC">
+                <img src="images/MAGIC.png" />
+              </td>
+              <td class="item" data-item="STONE_OF_AGONY" data-original-item="STONE_OF_AGONY">
+                <img src="images/STONE_OF_AGONY.png" />
+              </td>
+              <td class="item" data-item="GOLD_SKULLTULA" data-original-item="GOLD_SKULLTULA">
+                <img src="images/GOLD_SKULLTULA.png" />
+                <span class="count"></span>
+              </td>
+            </tr>
+          </table>
+        </div>
         
-      </div>
-      <div class="pane-container" style="border:none">
-        <div id="locations">
-          <div class="locations">
-            <!-- Regions are put in here -->
-            <div id="map-container" floor='0'>             
-              <h3 id="map-header"></h3>
-              <h3 id="floor-indicator"></h3>
-              <p>Click <img src="images/MAP_ICON.png" style="vertical-align: bottom;"> next to a location name to display a map of that area.</p>
-              <div id="map-foreground" class="overworld-map"></div>
-              <img id="map-background" class="overworld-map">
-              <div id="floor-selector"></div>
-              <br>              
+        <div id="options">
+          <form id="age-selector">
+            <label class="input-container" for="age-child">
+              <input id="age-child" class="radio" name="age" value="CHILD" type="radio" checked="checked">
+              <span class="checkmark"></span>
+              Child
+            </label>        
+            <label class="input-container" for="age-adult">
+              <input id="age-adult" class="radio" name="age" value="ADULT" type="radio">
+              Adult
+              <span class="checkmark"></span>
+            </label>
+          </form>
+          <hr>
+          <span class=button onclick="$('#pedestal-modal').fadeIn()">Pedestal of Time Hints</span>
+          <br>
+          <span class=button onclick="$('#settings-modal').fadeIn()">Settings</span> 
+        </div>
+      </div>       
+    </div>   
+
+    <div id="left-side" style="display: none">
+      <div id="overworld">
+        <div class="tabWrapper" id="overworldTabs">
+          <span class="tabOverworld" id="kokiri-forest" onclick="currentPane(1)" style="background: black; color: white;"><span><b>&raquo;</b></span></span>
+          <br>
+          <span class="tabOverworld" id="hyrule-field" onclick="currentPane(2)"><span><b>&raquo;</b></span></span>
+          <br>
+          <span class="tabOverworld" id="hyrule-castle" onclick="currentPane(3)"><span><b>&raquo;</b></span></span>
+          <br>
+          <span class="tabOverworld" id="kakariko-village" onclick="currentPane(4)"><span><b>&raquo;</b></span></span>
+          <br>
+          <span class="tabOverworld" id="death-mountain" onclick="currentPane(5)"><span><b>&raquo;</b></span></span>
+          <br>
+          <span class="tabOverworld" id="zoras-river" onclick="currentPane(6)"><span><b>&raquo;</b></span></span>
+          <br>
+          <span class="tabOverworld" id="lake-hylia" onclick="currentPane(7)"><span><b>&raquo;</b></span></span>
+          <br>
+          <span class="tabOverworld" id="gerudo-desert" onclick="currentPane(8)"><span><b>&raquo;</b></span></span>
+          <br>
+          <span class="tabOverworld" id="inventory-tab" onclick="showInventory()"><span><b>&raquo;</b></span></span>
+          <br id="inventory-tab">
+          <span class="tabOverworld" id="skulltula-tab" onclick="skullsOn()"><span><b>&raquo;</b></span></span>
+          
+        </div>
+        <div class="pane-container" style="border:none">
+          <div id="locations">
+            <div class="locations">
+              <!-- Regions are put in here -->
+              <div id="map-container" floor='0'>             
+                <h3 id="map-header"></h3>
+                <h3 id="floor-indicator"></h3>
+                <p>Click <img src="images/MAP_ICON.png" style="vertical-align: bottom;"> next to a location name to display a map of that area.</p>
+                <div id="map-foreground" class="overworld-map"></div>
+                <img id="map-background" class="overworld-map">
+                <div id="floor-selector"></div>
+                <br>              
+              </div>
             </div>
-          </div>
-        </div>        
+          </div>        
+        </div>
+      </div>
+    </div>  
+
+    <div id="pedestal-modal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close" onclick="$('#pedestal-modal').fadeOut()">×</span>
+          <h3 id="pedestal-title">Pedestal of Time Hints</h3>
+          <h6 id="hint-warning">WARNING: You have more than one Medallion/Stone in the same place!</h6>
+        </div>
+        <div class="modal-body" style="max-height: 400px;"> 
+          <div class="row">
+            <div class="column">
+              <table class="medallion-table">
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <div id="LIGHT_MEDALLION" class="item stone-hint" data-item="HINT_LIGHT_MEDALLION">
+                      <img src="images/LIGHT_MEDALLION.png">
+                      <label class="medallion-location"></label>
+                    </div>
+                  </td>
+                  <td></td>
+                  <td></td>
+                </tr>
+
+                <tr>            
+                  <td>
+                    <div id="SHADOW_MEDALLION" class="item stone-hint" data-item="HINT_SHADOW_MEDALLION">
+                      <img src="images/SHADOW_MEDALLION.png">
+                      <label class="medallion-location"></label>
+                    </div>
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <div id="FOREST_MEDALLION" class="item stone-hint" data-item="HINT_FOREST_MEDALLION">
+                      <img src="images/FOREST_MEDALLION.png">
+                      <label class="medallion-location"></label>
+                    </div>
+                  </td>            
+                </tr>
+
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+
+                <tr>            
+                  <td>
+                    <div id="SPIRIT_MEDALLION" class="item stone-hint" data-item="HINT_SPIRIT_MEDALLION">
+                      <img src="images/SPIRIT_MEDALLION.png">
+                      <label class="medallion-location"></label>
+                    </div>
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <div id="FIRE_MEDALLION" class="item stone-hint" data-item="HINT_FIRE_MEDALLION">
+                      <img src="images/FIRE_MEDALLION.png">
+                      <label class="medallion-location"></label>
+                    </div>
+                  </td>            
+                </tr>
+
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <div id="WATER_MEDALLION" class="item stone-hint" data-item="HINT_WATER_MEDALLION">
+                      <img src="images/WATER_MEDALLION.png">
+                      <label class="medallion-location"></label>
+                    </div>
+                  </td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </table>
+            </div>
+            <div class="column">
+              <table class="medallion-table">
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+
+                <tr>            
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <div id="KOKIRI_EMERALD" class="item stone-hint" data-item="HINT_KOKIRI_EMERALD">
+                      <img src="images/KOKIRI_EMERALD.png">
+                      <label class="medallion-location"></label>
+                    </div>
+                  </td>
+                  <td></td>
+                  <td></td>            
+                </tr>
+
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+
+                <tr>            
+                  <td></td>
+                  <td>
+                    <div id="GORONS_RUBY" class="item stone-hint" data-item="HINT_GORONS_RUBY">
+                      <img src="images/GORONS_RUBY.png">
+                      <label class="medallion-location"></label>
+                    </div>
+                  </td>
+                  <td></td>
+                  <td>
+                    <div id="ZORAS_SAPPHIRE" class="item stone-hint" data-item="HINT_ZORAS_SAPPHIRE">
+                      <img src="images/ZORAS_SAPPHIRE.png">
+                      <label class="medallion-location"></label>
+                    </div>
+                  </td>
+                  <td></td>            
+                </tr>
+              </table>
+            </div>
+          </div> 
+        </div>
+        <div class="modal-footer">
+          <p class="blurb">Select a Medallion or Spiritual Stone to record its location,<br>as told by the Pedestal of Time.</p>            
+        </div>
       </div>
     </div>
-  </div>  
 
-
-
-  <div id="pedestal-modal" class="modal">
-    <!-- Modal content -->
-    <div class="modal-content">
-      <div class="modal-header">
-        <span class="close" onclick="$('#pedestal-modal').fadeOut()">×</span>
-        <h3 id="pedestal-title">Pedestal of Time Hints</h3>
-        <h6 id="hint-warning">WARNING: You have more than one Medallion/Stone in the same place!</h6>
-      </div>
-      <div class="modal-body" style="max-height: 400px;"> 
-        <div class="row">
-          <div class="column">
-            <table class="medallion-table">
-              <tr>
-                <td></td>
-                <td></td>
-                <td>
-                  <div id="LIGHT_MEDALLION" class="item stone-hint" data-item="HINT_LIGHT_MEDALLION">
-                    <img src="images/LIGHT_MEDALLION.png">
-                    <label class="medallion-location"></label>
-                  </div>
-                </td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              <tr>            
-                <td>
-                  <div id="SHADOW_MEDALLION" class="item stone-hint" data-item="HINT_SHADOW_MEDALLION">
-                    <img src="images/SHADOW_MEDALLION.png">
-                    <label class="medallion-location"></label>
-                  </div>
-                </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                  <div id="FOREST_MEDALLION" class="item stone-hint" data-item="HINT_FOREST_MEDALLION">
-                    <img src="images/FOREST_MEDALLION.png">
-                    <label class="medallion-location"></label>
-                  </div>
-                </td>            
-              </tr>
-
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              <tr>            
-                <td>
-                  <div id="SPIRIT_MEDALLION" class="item stone-hint" data-item="HINT_SPIRIT_MEDALLION">
-                    <img src="images/SPIRIT_MEDALLION.png">
-                    <label class="medallion-location"></label>
-                  </div>
-                </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                  <div id="FIRE_MEDALLION" class="item stone-hint" data-item="HINT_FIRE_MEDALLION">
-                    <img src="images/FIRE_MEDALLION.png">
-                    <label class="medallion-location"></label>
-                  </div>
-                </td>            
-              </tr>
-
-              <tr>
-                <td></td>
-                <td></td>
-                <td>
-                  <div id="WATER_MEDALLION" class="item stone-hint" data-item="HINT_WATER_MEDALLION">
-                    <img src="images/WATER_MEDALLION.png">
-                    <label class="medallion-location"></label>
-                  </div>
-                </td>
-                <td></td>
-                <td></td>
-              </tr>
-            </table>
-          </div>
-          <div class="column">
-            <table class="medallion-table">
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              <tr>            
-                <td></td>
-                <td></td>
-                <td>
-                  <div id="KOKIRI_EMERALD" class="item stone-hint" data-item="HINT_KOKIRI_EMERALD">
-                    <img src="images/KOKIRI_EMERALD.png">
-                    <label class="medallion-location"></label>
-                  </div>
-                </td>
-                <td></td>
-                <td></td>            
-              </tr>
-
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              <tr>            
-                <td></td>
-                <td>
-                  <div id="GORONS_RUBY" class="item stone-hint" data-item="HINT_GORONS_RUBY">
-                    <img src="images/GORONS_RUBY.png">
-                    <label class="medallion-location"></label>
-                  </div>
-                </td>
-                <td></td>
-                <td>
-                  <div id="ZORAS_SAPPHIRE" class="item stone-hint" data-item="HINT_ZORAS_SAPPHIRE">
-                    <img src="images/ZORAS_SAPPHIRE.png">
-                    <label class="medallion-location"></label>
-                  </div>
-                </td>
-                <td></td>            
-              </tr>
-            </table>
-          </div>
-        </div> 
-      </div>
-      <div class="modal-footer">
-        <p class="blurb">Select a Medallion or Spiritual Stone to record its location,<br>as told by the Pedestal of Time.</p>            
+    <div id="hint-select-modal" class="modal" active-hint="">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="hint-header"></h3>        
+        </div>
+        <div class="modal-body">
+          <p id="hint-text"></p>
+          <form id="read-pedestal">          
+            <button id="deku-hint" type="button" class="pedestal-hint button" value="Deku" long="Deku Tree">Ancient Tree</button>
+            <button id="dc-hint"type="button" class="pedestal-hint button" value="DC" long="Dodongo's Cavern">Immense Cavern</button>
+            <button id="jabu-hint" type="button" class="pedestal-hint button" value="Jabu" long="Jabu-Jabu's Belly">Belly of a Deity</button>
+            <button id="forest-hint" type="button" class="pedestal-hint button" value="Forest" long="Forest Temple">Deep Forest</button>
+            <button id="fire-hint" type="button" class="pedestal-hint button" value="Fire" long="Fire Temple">High Mountain</button>
+            <button id="water-hint" type="button" class="pedestal-hint button" value="Water" long="Water Temple">Vast Lake</button>
+            <button id="spirit-hint" type="button" class="pedestal-hint button" value="Spirit" long="Spirit Temple">Goddess of the Sand</button>
+            <button id="shdw-hint" type="button" class="pedestal-hint button" value="Shdw" long="Shadow Temple">House of the Dead</button>
+            <button id="light-hint" type="button" class="pedestal-hint button" value="Free" long="Link's Pocket">Link's Pocket</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <p style="color:transparent; font-size:10px">shoutouts to simpleflips</p>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div id="hint-select-modal" class="modal" active-hint="">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 id="hint-header"></h3>        
-      </div>
-      <div class="modal-body">
-        <p id="hint-text"></p>
-        <form id="read-pedestal">          
-          <button id="deku-hint" type="button" class="pedestal-hint button" value="Deku" long="Deku Tree">Ancient Tree</button>
-          <button id="dc-hint"type="button" class="pedestal-hint button" value="DC" long="Dodongo's Cavern">Immense Cavern</button>
-          <button id="jabu-hint" type="button" class="pedestal-hint button" value="Jabu" long="Jabu-Jabu's Belly">Belly of a Deity</button>
-          <button id="forest-hint" type="button" class="pedestal-hint button" value="Forest" long="Forest Temple">Deep Forest</button>
-          <button id="fire-hint" type="button" class="pedestal-hint button" value="Fire" long="Fire Temple">High Mountain</button>
-          <button id="water-hint" type="button" class="pedestal-hint button" value="Water" long="Water Temple">Vast Lake</button>
-          <button id="spirit-hint" type="button" class="pedestal-hint button" value="Spirit" long="Spirit Temple">Goddess of the Sand</button>
-          <button id="shdw-hint" type="button" class="pedestal-hint button" value="Shdw" long="Shadow Temple">House of the Dead</button>
-          <button id="light-hint" type="button" class="pedestal-hint button" value="Free" long="Link's Pocket">Link's Pocket</button>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <p style="color:transparent; font-size:10px">shoutouts to simpleflips</p>
+    <div id="settings-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close" onclick="$('#settings-modal').fadeOut()">×</span>
+          <h3>Settings</h3>
+        </div>
+        <div class=modal-body>
+          <form id="settings">
+            <table class="borderless"></table>
+          </form>
+        </div>
+        <div class=modal-footer>
+          <a class="link" href="https://github.com/the404devs/zootr-tracker" style="color:white">v0.2.3 (02/18/19)</a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div id="settings-modal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <span class="close" onclick="$('#settings-modal').fadeOut()">×</span>
-        <h3>Settings</h3>
-      </div>
-      <div class=modal-body>
-        <form id="settings">
-          <table class="borderless"></table>
-        </form>
-      </div>
-      <div class=modal-footer>
-        <a class="link" href="https://github.com/the404devs/zootr-tracker" style="color:white">v0.2.3 (02/18/19)</a>
-      </div>
-    </div>
-  </div>
-  <!-- <script type="text/javascript" src="../js/remove-branding.js"></script> -->
-  <div></div>
-</body>
+    <script type="text/javascript" src="../js/remove-branding.js"></script>
+    <div></div>
+  </body>
 </html>

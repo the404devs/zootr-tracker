@@ -10,6 +10,7 @@ define(["require", "data/ages"], function(require, Age){
       this.count = more.count;
       this.max = more.max || 1;
       this.next = more.next;
+      this.notes = more.notes;
     }
     this.supers = this.supers || [];
     this.requirements = this.requirements || [];
