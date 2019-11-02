@@ -362,19 +362,19 @@ define(["data/locations", "classes/itemCheck", "data/itemsAndSongs", "data/abili
       {age: Age.ADULT, abilities: [Abilities.SHIELD, Abilities.BOMB], glitches: true},
     ]),
     // Deku Tree
-    new ItemCheck("Map", Locations.DEKU_TREE, [200,137], "1F"),
-    new ItemCheck("Slingshot", Locations.DEKU_TREE, [55,250], "2F", [
+    new ItemCheck("Map", Locations.DEKU_TREE, [257,123], "1F"),
+    new ItemCheck("Slingshot", Locations.DEKU_TREE, [157,257], "2F", [
       {items: [Items.DEKU_SHIELD]},
       {items: [Items.MEGATON_HAMMER], glitches: true},
     ]),
-    new ItemCheck("Near Slingshot", Locations.DEKU_TREE, [80,260], "2F", [
+    new ItemCheck("Near Slingshot", Locations.DEKU_TREE, [175,260], "2F", [
       {items: [Items.DEKU_SHIELD]},
       {items: [Items.MEGATON_HAMMER], glitches: true},
     ]),
-    new ItemCheck("Compass", Locations.DEKU_TREE, [30,140], "3F",),
-    new ItemCheck("Near Compass", Locations.DEKU_TREE, [87,175], "3F",),
-    new ItemCheck("Basement", Locations.DEKU_TREE, [355,80], "B1",),
-    new ItemCheck("Queen Gohma", Locations.DEKU_TREE, [120,70], "B2", [
+    new ItemCheck("Compass", Locations.DEKU_TREE, [140,123], "3F",),
+    new ItemCheck("Near Compass", Locations.DEKU_TREE, [185,145], "3F",),
+    new ItemCheck("Basement", Locations.DEKU_TREE, [290,90], "B1",),
+    new ItemCheck("Queen Gohma", Locations.DEKU_TREE, [200,20], "B2", [
       // burn web with stick
       // shield for 231
       {items: [Items.DEKU_STICK, Items.DEKU_SHIELD, Items.FAIRY_SLINGSHOT], abilities: [Abilities.SLASH]},
@@ -415,19 +415,19 @@ define(["data/locations", "classes/itemCheck", "data/itemsAndSongs", "data/abili
       {abilities: [Abilities.CRUMBLE]},
       {abilities: [Abilities.STRENGTH]}
     ]),
-    new ItemCheck("Platform Chest", Locations.DODONGOS_CAVERN, [229,170], "2F", [
+    new ItemCheck("Platform Chest", Locations.DODONGOS_CAVERN, [224,230], "2F", [
       {abilities: [Abilities.CRUMBLE, Abilities.IGNITE]},
       {abilities: [Abilities.STRENGTH]}
     ]),
-    new ItemCheck("Scrub (2F)", Locations.DODONGOS_CAVERN, [233,88], "2F", [
+    new ItemCheck("Scrub (2F)", Locations.DODONGOS_CAVERN, [226,148], "2F", [
       {abilities: [Abilities.CRUMBLE]},
       {abilities: [Abilities.STRENGTH]}
     ]),
-    new ItemCheck("Bomb Bag", Locations.DODONGOS_CAVERN, [222,128], "2F", [
+    new ItemCheck("Bomb Bag", Locations.DODONGOS_CAVERN, [217,188], "2F", [
       {abilities: [Abilities.CRUMBLE, Abilities.IGNITE]},
       {abilities: [Abilities.STRENGTH]}
     ]),
-    new ItemCheck("End of Bridge", Locations.DODONGOS_CAVERN, [95,109], "2F", [
+    new ItemCheck("End of Bridge", Locations.DODONGOS_CAVERN, [90,169], "2F", [
       {abilities: [Abilities.CRUMBLE, Abilities.IGNITE]},
       {abilities: [Abilities.CRUMBLE, Abilities.STRENGTH]}
     ]),

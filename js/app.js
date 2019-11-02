@@ -53,10 +53,12 @@ at the top of the screen as you scroll down. We do the same here with the map an
 window.onscroll = function() {
 	var mapbox = document.getElementById("map-container");
 	var tabs = document.getElementById("overworldTabs");
+  var floors = document.getElementById("floor-selector");
 	offset = window.pageYOffset-84;
 	if (offset<0) {offset=0}
 	mapbox.style.marginTop =  offset +"px";
 	tabs.style.marginTop =  offset + 4 +"px";
+  floors.style.marginTop = offset+50+"px";
 };	
 
 

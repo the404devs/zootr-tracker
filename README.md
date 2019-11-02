@@ -3,6 +3,13 @@ A tracker application for Ocarina of Time Randomizer
 www.the404.nl/zootr  
 Based off the work of Jared Branum, which can be found [here](https://github.com/jaredbranum/zootr-tracker)
 
+### *0.2.5 (11/01/19)*
+----------------------
+- Completed maps for Water, Shadow and Spirit Temples, and BOTW (Still need to plot checks).
+- Adjusted maps for Deku, Dodongo's, and Jabu to have each floor correctly superimposed over each other.
+- Slight adjustments to the map view.
+- Adjusted Song class to contain a sequence of notes corresponding to that song. Will be used for a future loading animation.
+
 ### *0.2.4 (03/07/19)*
 ----------------------
 - Fixed an issue that caused the application to load incorrectly, by attempting to create an Item object prior to loading the Item class. Oops.

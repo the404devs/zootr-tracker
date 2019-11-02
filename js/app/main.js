@@ -151,6 +151,14 @@ define(["require", "jquery", "data/ages", "data/abilities", "data/locations", "d
       $("#map-background").attr('src',"images/MAP_ICE_CAVERN_1F.png");
       $("#floor-indicator").html("(1F)");
     } 
+    else if (location===Locations.BOTTOM_OF_THE_WELL){      
+      $('#floor-selector').append($('<span/>').attr('class','floor').attr('num','B1').attr('style','background-color:black;color:white').html('B1')).append($('<br/>'))
+      .append($('<span/>').attr('class','floor').attr('num','B2').html('B2')).append($('<br/>'))
+      .append($('<span/>').attr('class','floor').attr('num','B3').html('B3')).append($('<br/>'));
+      $('#map-container').attr('floor','B1');
+      $("#map-background").attr('src',"images/MAP_BOTTOM_OF_THE_WELL_B1.png");
+      $("#floor-indicator").html("(B1)");
+    }
     else if (location===Locations.FOREST_TEMPLE){      
       $('#floor-selector').append($('<span/>').attr('class','floor').attr('num','2F').html('2F')).append($('<br/>'))
       .append($('<span/>').attr('class','floor').attr('num','1F').attr('style','background-color:black;color:white').html('1F')).append($('<br/>'))
@@ -178,6 +186,24 @@ define(["require", "jquery", "data/ages", "data/abilities", "data/locations", "d
       $('#map-container').attr('floor','1F');
       $("#map-background").attr('src',"images/MAP_WATER_TEMPLE_1F.png");
       $("#floor-indicator").html("(1F)");
+    }
+    else if (location===Locations.SPIRIT_TEMPLE){      
+      $('#floor-selector').append($('<span/>').attr('class','floor').attr('num','4F').html('4F')).append($('<br/>'))
+      .append($('<span/>').attr('class','floor').attr('num','3F').html('3F')).append($('<br/>'))
+      .append($('<span/>').attr('class','floor').attr('num','2F').html('2F')).append($('<br/>'))
+      .append($('<span/>').attr('class','floor').attr('num','1F').attr('style','background-color:black;color:white').html('1F')).append($('<br/>'))
+      $('#map-container').attr('floor','1F');
+      $("#map-background").attr('src',"images/MAP_SPIRIT_TEMPLE_1F.png");
+      $("#floor-indicator").html("(1F)");
+    }
+    else if (location===Locations.SHADOW_TEMPLE){      
+      $('#floor-selector').append($('<span/>').attr('class','floor').attr('num','B1').attr('style','background-color:black;color:white').html('B1')).append($('<br/>'))
+      .append($('<span/>').attr('class','floor').attr('num','B2').html('B2')).append($('<br/>'))
+      .append($('<span/>').attr('class','floor').attr('num','B3').html('B3')).append($('<br/>'))
+      .append($('<span/>').attr('class','floor').attr('num','B4').html('B4')).append($('<br/>'))
+      $('#map-container').attr('floor','B1');
+      $("#map-background").attr('src',"images/MAP_SHADOW_TEMPLE_B1.png");
+      $("#floor-indicator").html("(B1)");
     }
   };
 
