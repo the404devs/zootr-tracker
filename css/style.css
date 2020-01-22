@@ -611,7 +611,7 @@ ul.item-checks li input[type=checkbox]:checked + label {
   background-color: transparent;
   text-shadow: none;
   width: auto;
-  position: absolute;
+  position: fixed;
   margin-top: 5px;
 }
 
@@ -683,6 +683,7 @@ ul.item-checks li input[type=checkbox]:checked + label {
   /*background-color: purple;*/
   transition: background-color 0.25s, color 0.25s;
   padding-top: 15px;
+  position: fixed;
 }
 
 #map-header{
@@ -856,7 +857,7 @@ select, option{
   overflow: hidden; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  transition: 0.5s;
+  backdrop-filter: blur(10px);
 }
 
 /* Modal Content */

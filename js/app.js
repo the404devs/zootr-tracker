@@ -56,8 +56,8 @@ window.onscroll = function() {
   var floors = document.getElementById("floor-selector");
 	offset = window.pageYOffset-84;
 	if (offset<0) {offset=0}
-	mapbox.style.marginTop =  offset +"px";
-	tabs.style.marginTop =  offset + 4 +"px";
+	// mapbox.style.marginTop =  offset +"px";
+	// tabs.style.marginTop =  offset + 4 +"px";
   floors.style.marginTop = offset+50+"px";
 };	
 

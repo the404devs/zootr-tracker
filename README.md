@@ -3,6 +3,11 @@ A tracker application for Ocarina of Time Randomizer
 www.the404.nl/zootr  
 Based off the work of Jared Branum, which can be found [here](https://github.com/jaredbranum/zootr-tracker)
 
+### *0.2.6 (01/22/20)*
+----------------------
+- Testing some UI tweaks
+- What even is this project
+
 ### *0.2.5 (11/01/19)*
 ----------------------
 - Completed maps for Water, Shadow and Spirit Temples, and BOTW (Still need to plot checks).
