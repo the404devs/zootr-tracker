@@ -1,4 +1,4 @@
-define(["require", "data/items", "classes/item", "data/ages"], function(require, Item, Age) {
+define(["require", "classes/item", "data/items", "data/ages"], function(require, Item, Age) {
     return function Song(name, notes) {
         this.notes = notes;
 
