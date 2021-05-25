@@ -5,25 +5,25 @@ https://zootr.the404.nl
 
 Based off the work of Jared Branum, which can be found [here](https://github.com/jaredbranum/zootr-tracker)
 
-### *0.2.7 (06/12/20)*
-----------------------
+### *0.2.7 (06/12/2020)*
+------------------------
 - Fixed broken 0.2.6 CSS.
 - Minor fixes here and there.
 
-### *0.2.6 (01/22/20)*
-----------------------
+### *0.2.6 (01/22/2020)*
+------------------------
 - Testing some UI tweaks
 - What even is this project
 
-### *0.2.5 (11/01/19)*
-----------------------
+### *0.2.5 (11/01/2019)*
+------------------------
 - Completed maps for Water, Shadow and Spirit Temples, and BOTW (Still need to plot checks).
 - Adjusted maps for Deku, Dodongo's, and Jabu to have each floor correctly superimposed over each other.
 - Slight adjustments to the map view.
 - Adjusted Song class to contain a sequence of notes corresponding to that song. Will be used for a future loading animation.
 
-### *0.2.4 (03/07/19)*
-----------------------
+### *0.2.4 (03/07/2019)*
+------------------------
 - Fixed an issue that caused the application to load incorrectly, by attempting to create an Item object prior to loading the Item class. Oops.
 - Loading animation. Exact same one as used in 404editor, might make a more interesting one in the future
 - Dungeon maps in need of plotting:
@@ -35,8 +35,8 @@ Based off the work of Jared Branum, which can be found [here](https://github.com
 	- BOTW
 	- GTG
 
-### *0.2.3 (02/19/19)*
-----------------------
+### *0.2.3 (02/19/2019)*
+------------------------
 - A whole new interface for recording the hints from the Pedestal of Time.
 	- If, by mistake, you select the same location for two medallions/stones, a warning message will appear.
 - Changed Kakariko colour from #b348d2 to #8500f7. It seemed too light, with the Shadow Temple and all.
@@ -57,8 +57,8 @@ Based off the work of Jared Branum, which can be found [here](https://github.com
 - Known issues
 	- If you mark off a check you can't actually access with your current inventory (for example, a Song of Storms grotto without an ocarina), it won't disappear from the map until you meet the item requirements for that check.
 
-### *0.2.2 (02/17/19)*
-----------------------
+### *0.2.2 (02/17/2019)*
+------------------------
 I'm back on the grind with this thing again!
 Here's what's been changed:
 - Slight UI improvements
